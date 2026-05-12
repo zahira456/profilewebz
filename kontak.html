@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+  <img src="images/logo.png" alt="Logo" 
+       style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+  Zhone</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="kontak.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- CONTACT SECTION -->
+<section class="py-5" style="margin-top: 80px;">
+  <div class="container">
+    <h2 class="fw-bold text-center mb-4">Contact Me</h2>
+
+    <div class="row g-4">
+
+      <!-- FORM CONTACT -->
+      <div class="col-md-6">
+        <div id="alertSuccess" class="alert alert-success d-none">
+  Your message has been sent successfully!
+</div>
+
+<div id="alertError" class="alert alert-danger d-none">
+  Something went wrong. Please try again.
+</div>
+
+        <div class="p-4 shadow-sm rounded border bg-light">
+
+          <form id="contactForm" class="needs-validation" novalidate>
+
+  <!-- NAME -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Name</label>
+    <input type="text" class="form-control" required placeholder="Enter your name">
+    <div class="invalid-feedback">Name is required.</div>
+  </div>
+
+  <!-- EMAIL -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Email</label>
+    <input type="email" class="form-control" required placeholder="contoh@gmail.com">
+    <div class="invalid-feedback">Please enter a valid email.</div>
+  </div>
+
+  <!-- PHONE -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Phone</label>
+    <input type="tel" class="form-control" id="phone" required 
+       placeholder="08xxxxxxxx" pattern="^[0-9]{9,14}$">
+<div class="invalid-feedback ">Phone must contain numbers only.</div>
+  </div>
+
+  <!-- SUBJECT -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Subject</label>
+    <select class="form-select" required>
+      <option value="">-- Choose subject --</option>
+      <option>Project</option>
+      <option>Collaboration</option>
+      <option>General Question</option>
+    </select>
+    <div class="invalid-feedback">Please select a subject.</div>
+  </div>
+
+  <!-- MESSAGE -->
+  <div class="mb-3">
+    <label class="form-label fw-bold">Message</label>
+    <textarea class="form-control" rows="4" required placeholder="Write your message..."></textarea>
+    <div class="invalid-feedback">Message cannot be empty.</div>
+  </div>
+
+  <!-- CHECKBOX -->
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="agree" required>
+    <label class="form-check-label" for="agree">
+      I agree to the terms & conditions
+    </label>
+    <div class="invalid-feedback">You must agree before submitting.</div>
+  </div>
+
+  <!-- SUBMIT BUTTON -->
+  <button type="submit" id="submitBtn" class="btn btn-dark w-100" disabled>
+    Submit
+  </button>
+
+</form>
+
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR INFO -->
+      <div class="col-md-6">
+        <div class="p-4 shadow-sm rounded border h-100">
+          <h5 class="fw-bold mt-4">Location</h5>
+<div class="rounded overflow-hidden shadow-sm">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.294214322322!2d100.42465322773444!3d-0.9286998999999948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b9ee956c125b%3A0x65177f7c2716b79f!2sPT%20TOTAL%20KARYA%20TEKNIK!5e0!3m2!1sid!2sid!4v1765501150037!5m2!1sid!2sid" 
+  width="100%" height="200" style="border:0;" allowfullscreen loading="lazy">
+  </iframe>
+</div>
+
+          <h5 class="fw-bold">Info Kontak</h5>
+          <p>Email: <strong>zahirasyifa456@gmail.com</strong></p>
+          <p>No HP: <strong>081261547838</strong></p>
+          <p>Alamat: <strong>Padang, Indonesia</strong></p>
+
+          <hr>
+
+          <h5 class="fw-bold">Social Media</h5>
+          <p>
+            <a href="https://instagram.com/za_niverse" class="sos-link me-3">            
+               <i class="bi bi-instagram"></i>
+              Instagram</a>
+            <a href="https://github.com/zahira456" class="sos-link me-3">
+               <i class="bi bi-github"></i>GitHub</a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer-section">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- COMPANY INFO -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Zhone</h5>
+        <p class="small mt-2">
+          Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+          proyek yang telah saya buat, serta cara menghubungi saya.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Quick Links</h5>
+        <ul class="list-unstyled mt-2">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="kontak.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Follow Me</h5>
+
+        <div class="d-flex mt-2">
+          <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://github.com/zahira456" class="social-icon me-3">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="text-center mt-4 pt-3 border-top border-secondary">
+      <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Enable submit only when checkbox checked
+  const agree = document.getElementById("agree");
+  const submitBtn = document.getElementById("submitBtn");
+
+  agree.addEventListener("change", function () {
+    submitBtn.disabled = !agree.checked;
+  });
+
+  // Bootstrap validation
+  (function () {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+</script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  if (!this.checkValidity()) {
+    // form tidak valid → tampilkan alert error
+    document.getElementById("alertError").classList.remove("d-none");
+    return;
+  }
+
+  e.preventDefault(); 
+
+  // jika valid → tampilkan success
+  document.getElementById("alertSuccess").classList.remove("d-none");
+  document.getElementById("alertError").classList.add("d-none");
+  // reset form
+  this.reset();
+  this.classList.remove("was-validated");
+
+  // disable submit lagi
+  submitBtn.disabled = true;
+});
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+  <img src="images/logo.png" alt="Logo" 
+       style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+  Zhone
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- TITLE -->
+<section class="pt-5 mt-5 text-center">
+  <h1 class="fw-bold">My Portfolio</h1>
+  <p class="text-muted">Explore my recent works and creative projects.</p>
+</section>
+
+
+<!-- FILTER BUTTONS -->
+<section class="text-center my-4">
+  <button class="btn btn-outline-dark me-2 filter-btn" data-category="all">All</button>
+  <button class="btn btn-outline-dark me-2 filter-btn" data-category="java">Java Project</button>
+  <button class="btn btn-outline-dark me-2 filter-btn" data-category="datascience">Data Science</button>
+  <button class="btn btn-outline-dark filter-btn" data-category="photo">Photography</button>
+</section>
+
+
+
+<!-- PORTFOLIO GRID -->
+<section class="container" id="portfolio-grid">
+  <div class="row g-4">
+   <!-- CARD 1 - JAVA -->
+<div class="col-md-4 portfolio-item" data-category="java">
+  <div class="card h-100 shadow" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+    <img src="images/port1.jpg" class="card-img-top" alt="GUI Kalkulator">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">GUI Calculator</h5>
+      <p class="card-text">A simple calculator app built with GUI Java.</p>
+      <span class="badge bg-primary">Java Project</span>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 1 -->
+<div class="modal fade" id="portfolioModal1" tabindex="-1">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">GUI Calculator</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <span class="badge bg-primary mb-3">Java Project</span>
+
+        <!-- CAROUSEL -->
+        <div id="carouselModal1" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <img src="images/port1a.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port1b.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port1c.jpg" class="d-block w-100">
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselModal1" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <p>
+          A simple graphical calculator application built using Java 
+          with GUI libraries. It includes basic arithmetic operations, 
+          clean interface layout, and efficient button interactions.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CARD 2 - SOFTWARE -->
+<div class="col-md-4 portfolio-item" data-category="java">
+  <div class="card h-100 shadow" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+    <img src="images/port2.jpg" class="card-img-top" alt="Laundry App GUI">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Laundry Apps GUI</h5>
+      <p class="card-text">Desktop laundry management app using Java GUI.</p>
+      <span class="badge bg-primary">Java Project</span>
+    </div>
+  </div>
+</div>
+<!-- MODAL 2 -->
+<div class="modal fade" id="portfolioModal2" tabindex="-1">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Laundry Apps GUI</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <span class="badge bg-primary mb-3">Java Project</span>
+
+        <div id="carouselModal2" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <img src="images/port2a.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port2b.jpg" class="d-block w-100">
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal2" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselModal2" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <p>
+          A laundry management desktop application with GUI for 
+          handling orders, calculating prices, and generating receipts. 
+          Designed to simplify store operations with a user-friendly layout.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CARD 3 - DATA SCIENCE -->
+<div class="col-md-4 portfolio-item" data-category="datascience">
+  <div class="card h-100 shadow" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+    <img src="images/port3.jpg" class="card-img-top" alt="Data Science Project 1">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Temperature and humidity</h5>
+      <p class="card-text">Exploratory Data Analysis (EDA) on Temperature & Humidity data using Python, Pandas, and Matplotlib.</p>
+      <span class="badge bg-warning text-dark">Data Science</span>
+    </div>
+  </div>
+</div>
+<!-- MODAL 3 -->
+<div class="modal fade" id="portfolioModal3" tabindex="-1">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Data Science Project 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <span class="badge bg-warning text-dark mb-3">Data Science</span>
+
+        <div id="carouselModal3" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <img src="images/port3a.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port3b.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port3c.jpg" class="d-block w-100">
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal3" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselModal3" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <p>
+          Exploratory Data Analysis using Python Pandas and Matplotlib. 
+          Includes data cleaning, visualization, and extraction of insights 
+          from raw datasets for decision-making.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CARD 4 - DATA SCIENCE -->
+<div class="col-md-4 portfolio-item" data-category="datascience">
+  <div class="card h-100 shadow" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+    <img src="images/port4.jpg" class="card-img-top" alt="Data Science 2">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Iris Flower Dataset</h5>
+      <p class="card-text">Data cleaning, visualization, outlier detection, 
+        and correlation analysis to understand feature relationships.</p>
+      <span class="badge bg-warning text-dark">Data Science</span>
+    </div>
+  </div>
+</div>
+<!-- MODAL 4 -->
+<div class="modal fade" id="portfolioModal4" tabindex="-1">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Data Science Project 2</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <span class="badge bg-warning text-dark mb-3">Data Science</span>
+
+        <div id="carouselModal4" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <img src="images/port4a.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port4b.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port4c.jpg" class="d-block w-100">
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal4" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselModal4" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <p>
+          Exploratory Data Analysis on the Iris Dataset using Python (Pandas, Seaborn, Matplotlib).
+          Includes data cleaning, descriptive statistics, univariate and multivariate visualization,
+           pattern detection, outlier inspection, and correlation analysis to understand relationships 
+           between flower characteristics.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- CARD 5 - PHOTO -->
+<div class="col-md-4 portfolio-item" data-category="photo">
+  <div class="card h-100 shadow" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+    <img src="images/port5.jpg" class="card-img-top" alt="Photo 1">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Nature Photography</h5>
+      <p class="card-text">Nature landscape shot with enhanced lighting and color correction.</p>
+      <span class="badge bg-success">Photography</span>
+    </div>
+  </div>
+</div>
+<!-- MODAL 5 -->
+<div class="modal fade" id="portfolioModal5" tabindex="-1">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Nature Photography</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <span class="badge bg-success mb-3">Photography</span>
+
+        <div id="carouselModal5" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <img src="images/port5a.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port5b.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port5c.jpg" class="d-block w-100">
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal5" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselModal5" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <p>
+          Natural landscape shot with enhanced lighting and color correction. 
+          Focuses on composition, contrast, and atmosphere to create a calm aesthetic.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- CARD 6 - PHOTO -->
+<div class="col-md-4 portfolio-item" data-category="photo">
+  <div class="card h-100 shadow" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+    <img src="images/port6.jpg" class="card-img-top" alt="Photo 2">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Sunset Photography</h5>
+      <p class="card-text">Sunset shot with vibrant colors and atmospheric lighting.</p>
+      <span class="badge bg-success">Photography</span>
+    </div>
+  </div>
+</div>
+<!-- MODAL 6 -->
+<div class="modal fade" id="portfolioModal6" tabindex="-1">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">Sunset Photography</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <span class="badge bg-success mb-3">Photography</span>
+
+        <div id="carouselModal6" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <img src="images/port6a.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port6b.jpg" class="d-block w-100">
+            </div>
+
+            <div class="carousel-item">
+              <img src="images/port6c.jpg" class="d-block w-100">
+            </div>
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal6" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselModal6" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+
+        <p>
+          Sunset shot with vibrant colors and atmospheric lighting. 
+          Emphasizes warm tones, silhouettes, and reflections to capture the beauty of dusk.
+        </p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.category;
+
+      items.forEach(item => {
+        item.style.display = 
+          category === 'all' || item.dataset.category === category
+          ? 'block'
+          : 'none';
+      });
+    });
+  });
+</script>
+</section>
+
+
+<footer class="footer-section">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- COMPANY INFO -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Zhone</h5>
+        <p class="small mt-2">
+          Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+          proyek yang telah saya buat, serta cara menghubungi saya.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Quick Links</h5>
+        <ul class="list-unstyled mt-2">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="kontak.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Follow Me</h5>
+
+        <div class="d-flex mt-2">
+          <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://github.com/zahira456" class="social-icon me-3">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="text-center mt-4 pt-3 border-top border-secondary">
+      <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+</html>
