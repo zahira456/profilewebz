@@ -33,16 +33,15 @@
     <!-- MENU -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="report.html">Laporan Praktikum</a></li>
         <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
       </ul>
     </div>
 
-    <li class="nav-item">
-   <a class="nav-link" href="blog.html">Laporan Praktikum</a>
-</li>
+
 
   </div>
 </nav>
@@ -52,13 +51,15 @@
 
   <div class="container">
 
-    <h1 class="text-center fw-bold mb-5">
-      Laporan Praktikum 6 Laravel
-    </h1>
+    <h3 class="text-center fw-bold mb-5">
+      Laporan Praktikum 6 <br>
+
+      Pemrograman Web
+    </h3>
 
     <div class="card shadow p-4">
 
-      <h3 class="fw-bold">Pendahuluan</h3>
+      <h4 class="fw-bold">Pendahuluan</h4>
       <p>
         Pada praktikum ini dilakukan proses instalasi dan pengenalan framework Laravel.
         Laravel merupakan framework PHP berbasis MVC yang digunakan untuk membangun aplikasi web.
@@ -66,7 +67,7 @@
 
       <hr>
 
-      <h3 class="fw-bold">Tujuan Praktikum</h3>
+      <h4 class="fw-bold">Tujuan Praktikum</h4>
 
       <ul>
         <li>Memahami instalasi Laravel</li>
@@ -77,31 +78,36 @@
 
       <hr>
 
-      <h3 class="fw-bold">Alat dan Bahan</h3>
+      <h4 class="fw-bold">Alat dan Bahan</h4>
 
       <ul>
         <li>XAMPP</li>
         <li>Composer</li>
         <li>Git</li>
         <li>Visual Studio Code</li>
-        <li>Node JS dan NPM</li>
       </ul>
 
       <hr>
 
-      <h3 class="fw-bold">Langkah-Langkah Praktikum</h3>
+      <h4 class="fw-bold">Langkah-Langkah Praktikum</h4>
 
-      <h5>1. Install XAMPP</h5>
+      <h6>1. Install XAMPP</h6>
+      <img src="images/xampp.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="xampp">
       <p>
         XAMPP digunakan sebagai web server lokal untuk menjalankan project Laravel.
       </p>
 
-      <h5>2. Install Composer</h5>
+      <h6>2. Install Composer</h6>
+      <img src="images/composer.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="composer">
       <p>
         Composer digunakan untuk mengelola dependency pada Laravel.
       </p>
 
-      <h5>3. Membuat Project Laravel</h5>
+      <h6>3. Membuat Project Laravel</h6>
 
       <pre class="bg-dark text-light p-3 rounded">
 composer create-project laravel/laravel project-laravel
@@ -111,55 +117,69 @@ composer create-project laravel/laravel project-laravel
         Perintah tersebut digunakan untuk membuat project Laravel baru.
       </p>
 
-      <h5>4. Menjalankan Laravel</h5>
-
-      <pre class="bg-dark text-light p-3 rounded">
-php artisan serve
-      </pre>
-
-      <p>
-        Setelah perintah dijalankan, Laravel akan berjalan pada localhost.
-      </p>
-
-      <hr>
-
-      <h3 class="fw-bold">Hasil Praktikum</h3>
+      <h6>4. Menjalankan Laravel</h6>
+      <img src="images/artisan.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="serve">
 
       <p>
-        Laravel berhasil diinstall dan dijalankan menggunakan localhost.
-        Project juga berhasil diupload ke GitHub dan dideploy ke hosting menggunakan GitHub Actions.
+        Setelah perintah dijalankan, Laravel akan berjalan pada localhost. Klik link <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a> yang diberikan untuk melihat halaman utama Laravel. 
       </p>
-
-      <hr>
-
-      <h3 class="fw-bold">Dokumentasi</h3>
-
       <img src="images/laravel1.png"
            class="img-fluid rounded shadow mb-3"
-           alt="Laravel">
+           alt="localhost">
 
-      <img src="images/laravel2.png"
-           class="img-fluid rounded shadow"
-           alt="Laravel">
 
       <hr>
 
-      <h3 class="fw-bold">Link GitHub</h3>
 
-      <a href="https://github.com/USERNAME/REPOSITORY"
-         target="_blank"
-         class="btn btn-dark">
-         Lihat Repository GitHub
-      </a>
-
-      <hr>
-
-      <h3 class="fw-bold">Kesimpulan</h3>
-
+      <h6>5. Membuat Controller</h6>
+      <img src="images/controller.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="controller">
       <p>
-        Praktikum ini membantu memahami proses instalasi Laravel,
-        penggunaan Composer, dan proses deployment website menggunakan GitHub Actions.
+        Perintah tersebut digunakan untuk membuat controller baru bernama UserController. Controller digunakan untuk mengatur logika aplikasi dan menghubungkan model dengan view.
       </p>
+      <h6>6. Routing</h6>
+       <img src="images/routing.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="routing">
+        <p> 
+        Routing dibuat pada file routes/web.php untuk menghubungkan URL dengan controller. Pada contoh ini, route /user akan memanggil method index pada UserController.
+        </p>   
+       <h6>7. View</h6>
+        <img src="images/view.png"
+            class="img-fluid rounded shadow mb-3"
+            alt="view">
+       <p>
+       View dibuat pada:
+       resources/views/user/index.blade.php untuk menampilkan halaman user. Blade adalah template engine yang digunakan oleh Laravel untuk membuat tampilan yang dinamis.
+           </p>
+
+      <h6>Hasil</h6>
+      <img src="images/hasil.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="hasil">
+           <p>
+            Halaman berhasil ditampilkan pada route /user. </p>
+
+      <hr>
+
+      <h6 class="fw-bold">Kesimpulan</h6>
+      <p>
+        Praktikum ini memberikan pemahaman tentang instalasi dan penggunaan dasar Laravel. Dengan mengikuti langkah-langkah praktikum, saya dapat menjalankan project Laravel dan membuat route sederhana untuk menampilkan halaman user.
+      </p>
+
+
+
+      <a href="https://github.com/zahira456/Zahira-Nur-Asyifa_2411532015_Pemweb"
+      target="_blank"
+      class="btn btn-dark">
+
+      <i class="bi bi-github"></i>
+      Lihat Repository GitHub
+      </a>
+      <hr>
 
     </div>
 
@@ -189,6 +209,7 @@ php artisan serve
           <li><a href="index.html" class="footer-link">Home</a></li>
           <li><a href="about.html" class="footer-link">About</a></li>
           <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="report.html" class="footer-link">Report</a></li>
           <li><a href="kontak.html" class="footer-link">Contact</a></li>
         </ul>
       </div>
