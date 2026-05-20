@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemweb 7</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body>
+  
+    <header>
+   <!-- NAVBAR -->
+        
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    
+    <!-- BRAND / NAMA WEBSITE -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+  <img src="images/logo.png" alt="Logo" 
+       style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+  Zhone
+  </a>
+
+
+    <!-- TOGGLER (TOMBOL HAMBURGER UNTUK HP) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
+        <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+      </ul>
+    </div>
+
+
+
+  </div>
+</nav>
+
+    </header>
+    <section class="py-5 mt-5">
+  <div class="container">
+
+    <h3 class="text-center fw-bold mb-5">
+      Laporan Praktikum 7 <br>
+      Pemrograman Web
+    </h3>
+
+    <div class="card shadow p-4">
+
+      <h4 class="fw-bold">Pendahuluan</h4>
+      <p>
+        Pada praktikum ini dilakukan pembuatan aplikasi CRUD sederhana menggunakan framework Laravel.
+        Praktikum membahas penggunaan migration, seeding, routing, model, controller, dan view
+        dengan konsep MVC (Model View Controller).
+      </p>
+
+      <hr>
+
+      <h4 class="fw-bold">Tujuan Praktikum</h4>
+
+      <ul>
+        <li>Memahami penggunaan migration pada Laravel</li>
+        <li>Memahami penggunaan seeding database</li>
+        <li>Memahami routing pada Laravel</li>
+        <li>Membuat model dan controller</li>
+        <li>Membuat view menggunakan Blade</li>
+        <li>Membuat aplikasi CRUD data mahasiswa</li>
+      </ul>
+
+      <hr>
+
+      <h4 class="fw-bold">Alat dan Bahan</h4>
+
+      <ul>
+        <li>XAMPP</li>
+        <li>Visual Studio Code</li>
+        <li>Laravel</li>
+        <li>Composer</li>
+        <li>Git</li>
+      </ul>
+
+      <hr>
+
+      <h4 class="fw-bold">Langkah-Langkah Praktikum</h4>
+
+      <h6>1. Konfigurasi Database</h6>
+
+      <img src="images/env.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="env">
+
+      <p>
+        Konfigurasi database dilakukan pada file .env dengan mengatur DB_DATABASE,
+        DB_USERNAME, dan DB_PASSWORD agar Laravel dapat terhubung dengan MySQL.
+      </p>
+
+      <hr>
+
+      <h6>2. Membuat Model, Migration, Controller, dan Seeder</h6>
+
+      <img src="images/model.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="model">
+
+      <p>
+        Perintah tersebut digunakan untuk membuat model beserta migration,
+        controller, dan seeder secara otomatis.
+      </p>
+
+      <hr>
+
+      <h6>3. Membuat Migration</h6>
+
+      <img src="images/migration.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="migration">
+
+      <p>
+        Migration digunakan untuk membuat struktur tabel 
+      </p>
+
+      <pre class="bg-dark text-light p-3 rounded">
+php artisan migrate
+      </pre>
+
+      <p>
+        Perintah migrate digunakan untuk menjalankan migration dan membuat tabel pada database.
+      </p>
+
+      <hr>
+
+      <h6>4. Membuat Seeder</h6>
+
+      <img src="images/seeder1.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="seeder">
+
+        <p>
+        Buat seeder untuk menambahkan data awal product ke dalam tabel products.
+      </p>
+         <img src="images/seeder2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="seeder2">
+        <img src="images/seeder3.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="seeder3">
+
+      <p>
+        Seeder digunakan untuk menambahkan data awal mahasiswa ke dalam database.
+      </p>
+
+      <pre class="bg-dark text-light p-3 rounded">
+php artisan db:seed
+      </pre>
+
+      <p>
+        Perintah tersebut digunakan untuk menjalankan seeder dan memasukkan data ke tabel mahasiswa.
+      </p>
+
+      <hr>
+
+      <h6>5. Membuat Route</h6>
+
+      <img src="images/route.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="route">
+
+      <p>
+        Route dibuat pada file web.php menggunakan Route::resource
+        untuk menghubungkan URL dengan ProductController.
+      </p>
+
+      <hr>
+
+      <h6>6. Membuat Controller</h6>
+
+      <img src="images/controller2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="controller">
+
+      <p>
+        Controller digunakan untuk mengatur logika aplikasi seperti
+        menampilkan data, menambah data, mengubah data, dan menghapus data mahasiswa.
+      </p>
+
+      <hr>
+
+      <h6>7. Membuat View</h6>
+
+      <img src="images/view2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="view">
+
+      <p>
+        View dibuat menggunakan Blade Template 
+      </p>
+
+      <hr>
+
+      <h6>8. Hasil ketika dijalankan</h6>
+
+      <img src="images/output.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="hasil">
+
+      <p>
+        Halaman utama aplikasi menampilkan daftar product yang telah dimasukkan melalui seeder.
+      </p>
+      <hr>
+
+      <h6>9. Membuat Model, Migration, Controller, dan Seeder untuk mahasiswa</h6>
+
+      <img src="images/model2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="hasil">
+
+      <hr>
+
+        <h6>10. Membuat Migration</h6>
+
+      <img src="images/migration2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="migration">
+
+      <p>
+        Migration digunakan untuk membuat struktur tabel 
+      </p>
+
+      <pre class="bg-dark text-light p-3 rounded">
+php artisan migrate
+      </pre>
+
+      <p>
+        Perintah migrate digunakan untuk menjalankan migration dan membuat tabel pada database.
+      </p>
+
+      <hr>
+
+      <h6>11. Membuat Seeder</h6>
+
+      <img src="images/seederm.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="seeder">
+
+      
+      <p>
+        Seeder digunakan untuk menambahkan data awal mahasiswa ke dalam database.
+      </p>
+
+
+      <hr>
+
+      <h6>12. Membuat Route</h6>
+
+      <img src="images/route2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="route">
+
+      <p>
+        Route dibuat pada file web.php menggunakan Route::resource
+        untuk menghubungkan URL dengan MahasiswaController.
+      </p>
+
+      <hr>
+
+      <h6>13. Membuat Controller</h6>
+
+      <img src="images/controller2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="controller">
+
+      <p>
+        Controller digunakan untuk mengatur logika aplikasi seperti
+        menampilkan data, menambah data, mengubah data, dan menghapus data mahasiswa.
+      </p>
+
+      <hr>
+
+      <h6>14. Membuat View untuk CRUD</h6>
+
+      <img src="images/viewindex.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="view">
+      <p>View untuk menampilkan daftar mahasiswa.</p>
+
+          <img src="images/viewcreate.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="view">
+      <p>View untuk form tambah mahasiswa.</p>
+      
+           <img src="images/viewedit.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="view">
+      <p>View untuk form edit mahasiswa.</p>
+
+    
+
+      <hr>
+
+      <h6>15. Hasil ketika dijalankan</h6>
+
+      <img src="images/output2.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="hasil">
+
+      <p>
+        Halaman utama aplikasi menampilkan daftar product yang telah dimasukkan melalui seeder.
+      </p>
+      <hr>
+
+
+
+      <h6 class="fw-bold">Kesimpulan</h6>
+
+      <p>
+        Praktikum ini memberikan pemahaman mengenai penggunaan migration,
+        seeding, routing, model, controller, dan view pada Laravel.
+        Dengan mengikuti langkah-langkah praktikum, aplikasi CRUD data mahasiswa
+        berhasil dibuat menggunakan konsep MVC pada framework Laravel.
+      </p>
+
+      <a href="https://github.com/zahira456/2411532015_Pemweb/tree/main/praktikum7"
+      target="_blank"
+      class="btn btn-dark">
+
+      <i class="bi bi-github"></i>
+      Lihat Repository GitHub
+      </a>
+      <hr>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="footer-section">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- COMPANY INFO -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Zhone</h5>
+        <p class="small mt-2">
+          Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+          proyek yang telah saya buat, serta cara menghubungi saya.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Quick Links</h5>
+        <ul class="list-unstyled mt-2">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="report.html" class="footer-link">Report</a></li>
+          <li><a href="kontak.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold">Follow Me</h5>
+
+        <div class="d-flex mt-2">
+          <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://github.com/zahira456" class="social-icon me-3">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="text-center mt-4 pt-3 border-top border-secondary">
+      <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
