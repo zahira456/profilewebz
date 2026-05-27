@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemweb 8</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="py-5 mt-5">
+    <div class="container">
+        <h3 class="text-center fw-bold mb-5">
+            Laporan Praktikum 8 <br>
+            Pemrograman Web
+        </h3>
+
+        <div class="card shadow p-4">
+
+            <h4 class="fw-bold">Pendahuluan</h4>
+            <p>
+                Pada praktikum ini dibuat aplikasi sederhana menggunakan Laravel dengan fokus pada konsep relationship antar tabel.
+                Studi kasus yang digunakan adalah sistem akademik yang terdiri dari mahasiswa, jurusan, dan mata kuliah.
+                Praktikum ini membahas pembuatan migration, model, seeder, controller, route, view, serta query relationship
+                seperti one-to-many dan many-to-many.
+            </p>
+
+            <hr>
+
+            <h4 class="fw-bold">Tujuan Praktikum</h4>
+            <ul>
+                <li>Memahami konsep relationship dalam Laravel</li>
+                <li>Mengimplementasikan one-to-many dan many-to-many relationship</li>
+                <li>Membuat migration dengan foreign key dan pivot table</li>
+                <li>Menggunakan Eloquent relationship untuk mengambil data</li>
+                <li>Menampilkan data relationship pada view Blade</li>
+                <li>Mengerjakan latihan query relationship sesuai modul</li>
+            </ul>
+
+            <hr>
+
+            <h4 class="fw-bold">Alat dan Bahan</h4>
+            <ul>
+                <li>XAMPP</li>
+                <li>Visual Studio Code</li>
+                <li>Laravel</li>
+                <li>Composer</li>
+                <li>Git / GitHub</li>
+                <li>Browser</li>
+            </ul>
+
+            <hr>
+
+            <h4 class="fw-bold">Langkah-Langkah Praktikum</h4>
+
+            <h6>1. Memahami Struktur Database dan Relationship</h6>
+            <p>
+                Pada modul ini terdapat tiga tabel utama yaitu <b>majors</b>, <b>students</b>, dan <b>subjects</b>.
+                Hubungan antar tabel adalah sebagai berikut:
+            </p>
+            <ul>
+                <li>Student belongs to Major (Many-to-One)</li>
+                <li>Major has many Student (One-to-Many)</li>
+                <li>Student belongs to many Subject through pivot table (Many-to-Many)</li>
+                <li>Subject belongs to many Student through pivot table (Many-to-Many)</li>
+            </ul>
+            <p>
+                ERD menunjukkan bahwa jurusan berhubungan dengan banyak mahasiswa, sedangkan mahasiswa dan mata kuliah
+                terhubung melalui tabel pivot <code>student_subject</code>.
+            </p>
+
+            <hr>
+
+            <h6>2. Membuat Migration</h6>
+            <p>
+                Migration dibuat untuk tabel <code>majors</code>, <code>students</code>, <code>subjects</code>, dan <code>student_subject</code>.
+                Tabel students memiliki foreign key <code>major_id</code>, sedangkan tabel pivot menyimpan <code>student_id</code> dan <code>subject_id</code>.
+            </p>
+           <img src="images/mig1.png"
+           class="img-fluid rounded shadow mb-3"
+           alt="migration majors">
+              <img src="images/mig2.png"
+              class="img-fluid rounded shadow mb-3"
+                alt="migration students">
+                    
+
+                Setelah migration selesai dibuat, perintah berikut dijalankan untuk membentuk tabel pada database.
+            </p>
+           <img src="images/mig3.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="migration subjects">
+            <p>
+                Pada tabel students digunakan foreign key dengan <code>onDelete('cascade')</code> agar data mahasiswa ikut terhapus
+                ketika jurusan terkait dihapus.
+            </p>
+
+            <hr>
+
+            <h6>3. Membuat Model dan Relationship</h6>
+            <p>
+                Tiga model dibuat untuk merepresentasikan tabel database, yaitu <code>Major</code>, <code>Student</code>, dan <code>Subject</code>.
+            </p>
+            <img src="images/modelp8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="Model Subjects">
+            <p><b>Model Major</b> menggunakan <code>hasMany(Student::class)</code> karena satu jurusan memiliki banyak mahasiswa.</p>
+            <pre class="bg-dark text-light p-3 rounded">public function students()
+{
+    return $this->hasMany(Student::class);
+}</pre>
+
+            <p><b>Model Student</b> menggunakan <code>belongsTo(Major::class)</code> untuk jurusan dan <code>belongsToMany(Subject::class)</code> untuk mata kuliah.</p>
+            <pre class="bg-dark text-light p-3 rounded">public function major()
+{
+    return $this->belongsTo(Major::class);
+}
+
+public function subjects()
+{
+    return $this->belongsToMany(Subject::class);
+}</pre>
+
+            <p><b>Model Subject</b> menggunakan <code>belongsToMany(Student::class)</code> karena satu mata kuliah bisa diambil oleh banyak mahasiswa.</p>
+            <pre class="bg-dark text-light p-3 rounded">public function students()
+{
+    return $this->belongsToMany(Student::class);
+}</pre>
+
+            <hr>
+
+            <h6>4. Membuat Seeder</h6>
+            <p>
+                Seeder digunakan untuk mengisi data awal jurusan, mata kuliah, dan mahasiswa. Pada <code>StudentSeeder</code>,
+                setiap mahasiswa diberi mata kuliah secara acak menggunakan relasi many-to-many.
+            </p>
+            <img src="images/seederp8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="Seeder Subjects">
+            <p>
+                Seluruh seeder dijalankan melalui <code>DatabaseSeeder</code> agar data awal langsung masuk ke database.
+            </p>
+            <img src="images/runseeder.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="migration subjects">
+            <p>
+                Pada bagian ini penting untuk memastikan data pivot tabel juga terbentuk, karena relasi mahasiswa dan mata kuliah
+                bergantung pada <code>attach()</code> di seeder.
+            </p>
+
+            <hr>
+
+            <h6>5. Membuat Controller</h6>
+            <p>
+                Controller berfungsi untuk mengatur logika aplikasi. Pada praktikum ini digunakan <code>StudentController</code>
+                untuk menampilkan data, menyimpan data, mengubah data, dan menghapus data mahasiswa.
+            </p>
+            <p>
+                Method <code>index()</code> menggunakan eager loading agar data jurusan dan mata kuliah diambil sekaligus dan menghindari N+1 problem.
+            </p>
+            <pre class="bg-dark text-light p-3 rounded">$students = Student::with(['major', 'subjects'])->get();</pre>
+            <p>
+                Pada method <code>store()</code> digunakan <code>attach()</code> untuk memasukkan data ke pivot table.
+                Pada method <code>update()</code> digunakan <code>sync()</code> agar relasi mata kuliah lama diganti dengan yang baru.
+                Pada method <code>destroy()</code> digunakan <code>detach()</code> sebelum data mahasiswa dihapus.
+            </p>
+
+            <hr>
+
+            <h6>6. Membuat Route</h6>
+            <p>
+                Route resource digunakan untuk menghubungkan URL dengan method controller secara otomatis.
+            </p>
+            <img src="images/routep8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="Route Students">
+            <p>
+                Route ini menghasilkan halaman index, create, store, show, edit, update, dan destroy untuk data mahasiswa.
+            </p>
+
+            <hr>
+
+            <h6>7. Membuat View</h6>
+            <p>
+                View dibuat menggunakan Blade Template untuk menampilkan data mahasiswa, jurusan, mata kuliah, dan total SKS.
+                Layout utama menggunakan Bootstrap agar tampilan lebih rapi dan responsif.
+            </p>
+            <p>
+                Pada halaman index mahasiswa ditampilkan data NIM, nama, jurusan, daftar mata kuliah, total SKS, dan aksi CRUD.
+            </p>
+            <p>
+                Contoh penggunaan relationship pada view:
+            </p>
+            <pre class="bg-dark text-light p-3 rounded">{{ '$student->major->name' }}
+{{ '$student->subjects->sum("sks")' }}</pre>
+
+            <hr>
+
+            <h6>8. Hasil ketika dijalankan</h6>
+            <p>
+                Setelah migration, seeder, controller, route, dan view selesai dibuat, aplikasi dapat dijalankan menggunakan
+                perintah <code>php artisan serve</code>. Saat halaman mahasiswa dibuka, sistem menampilkan data mahasiswa beserta jurusan,
+                mata kuliah, dan total SKS yang diambil.
+            </p>
+            <pre class="bg-dark text-light p-3 rounded">php artisan serve</pre>
+            <p>
+                Hasil ini membuktikan bahwa relasi one-to-many dan many-to-many berhasil diterapkan pada Laravel.
+            </p>
+
+            <hr>
+
+            <h6>9. Latihan 1: Menampilkan semua mahasiswa beserta jurusan dan mata kuliahnya</h6>
+            <p>
+                Pada latihan ini digunakan eager loading di controller dan relationship di view untuk menampilkan semua mahasiswa,
+                jurusan masing-masing, serta mata kuliah yang diambil.
+            </p>
+             <img src="images/l1p8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="latihan 1">
+            <hr>
+            
+            <p>
+                Di view, jurusan ditampilkan dengan <code>$student-&gt;major-&gt;name</code> dan mata kuliah ditampilkan dengan loop
+                <code>@foreach($student-&gt;subjects as $subject)</code>.
+            </p>
+             <img src="images/outputlp8l1.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="Output Latihan 1">
+            <hr>
+            
+
+            <hr>
+
+            <h6>10. Latihan 2: Menampilkan jurusan yang memiliki mahasiswa terbanyak</h6>
+            <p>
+                Latihan ini menggunakan <code>withCount('students')</code> untuk menghitung jumlah mahasiswa pada setiap jurusan.
+                Hasilnya diurutkan dari jumlah terbesar ke terkecil.
+            </p>
+            <img src="images/majorp8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="major relationship">
+            <p>
+                Hasil query ini menampilkan nama jurusan dan jumlah mahasiswa yang dimiliki setiap jurusan.
+            </p>
+            <img src="images/outputl1p8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="output latihan 1">
+
+            <hr>
+
+            <h6>11. Latihan 3: Menampilkan mata kuliah yang diambil mahasiswa tertentu</h6>
+            <p>
+                Pada latihan ini data mahasiswa diambil berdasarkan id dengan <code>findOrFail()</code>, lalu relationship subjects ditampilkan.
+            </p>
+            <pre class="bg-dark text-light p-3 rounded">Student::with('subjects')-&gt;findOrFail($id);</pre>
+            <p>
+                View kemudian menampilkan daftar mata kuliah beserta SKS-nya untuk mahasiswa tersebut.
+            </p>
+
+            <hr>
+
+            <h6>12. Latihan 4: Menampilkan total SKS setiap mahasiswa</h6>
+            <p>
+                Total SKS dihitung dari collection mata kuliah milik mahasiswa menggunakan fungsi <code>sum('sks')</code>.
+            </p>
+            <pre class="bg-dark text-light p-3 rounded">{{ '$student->subjects->sum("sks")' }}</pre>
+            <p>
+                Nilai total SKS ini ditampilkan pada tabel daftar mahasiswa di halaman index sesuai angka mereka.
+            </p>
+            <img src="images/sksl3p8.png"
+                    class="img-fluid rounded shadow mb-3"
+                    alt="total SKS">
+            <hr>
+
+            <h6>13. Hasil Pengujian dan Kendala</h6>
+            <p>
+                Pengujian dilakukan dengan memastikan data dari seeder muncul pada halaman mahasiswa, jurusan tampil dengan benar,
+                mata kuliah terhubung melalui pivot table, dan total SKS dapat dihitung sesuai data yang ada.
+            </p>
+            <p>
+                Kendala yang umum terjadi adalah relasi belum benar, pivot table belum terisi, atau nama method relationship tidak sesuai.
+                Karena itu, penulisan nama tabel, foreign key, dan method model harus konsisten.
+            </p>
+
+            <hr>
+
+            <h6 class="fw-bold">Kesimpulan</h6>
+            <p>
+                Praktikum ini memberikan pemahaman tentang relationship dalam Laravel, khususnya one-to-many dan many-to-many.
+                Melalui pembuatan migration, model, seeder, controller, route, dan view, aplikasi akademik sederhana berhasil dibangun.
+                Latihan yang diberikan membantu memahami cara mengambil data relasi, menghitung jumlah data relasi, dan menampilkan data
+                dengan eager loading agar aplikasi lebih efisien.
+            </p>
+
+            <a href="https://github.com/zahira456/2411532015_Pemweb"
+               target="_blank"
+               class="btn btn-dark">
+                <i class="bi bi-github"></i>
+                Lihat Repository GitHub
+            </a>
+
+            <hr>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta cara menghubungi saya.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://github.com/zahira456" class="social-icon me-3">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
