@@ -241,4 +241,14 @@ footer {
   max-height: 300px;
   padding: 16px;
 }
+.report-img{
+    max-width: 75%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.card pre{
+    font-size: 14px;
+}
 

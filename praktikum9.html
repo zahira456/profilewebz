@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pemweb 9</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="py-5 mt-5">
+    <div class="container">
+        <h3 class="text-center fw-bold mb-5">
+            Laporan Praktikum 9 <br>
+            Pemrograman Web
+        </h3>
+
+        <div class="card shadow p-4">
+            <h4 class="fw-bold">Pendahuluan</h4>
+
+<p>
+    Pada praktikum ini dilakukan pembuatan aplikasi Sistem Informasi sederhana menggunakan framework Laravel 12.
+    Praktikum dimulai dari pembuatan project Laravel, konfigurasi database, pembuatan sistem autentikasi,
+    penggunaan template SB Admin 2, hingga implementasi fitur CRUD User.
+</p>
+
+<p>
+    Laravel 12 menyediakan berbagai fitur yang memudahkan proses pengembangan aplikasi web seperti routing,
+    migration, seeder, blade template, middleware, dan ORM Eloquent. Dengan memanfaatkan fitur-fitur tersebut,
+    aplikasi dapat dibangun dengan struktur yang lebih rapi dan mudah dikembangkan.
+</p>
+
+<hr>
+
+<h4 class="fw-bold">Tujuan Praktikum</h4>
+
+<ul>
+    <li>Memahami proses instalasi dan konfigurasi Laravel 12.</li>
+    <li>Memahami koneksi Laravel dengan database MySQL.</li>
+    <li>Mengimplementasikan sistem login dan autentikasi.</li>
+    <li>Menggunakan template SB Admin 2 pada Laravel.</li>
+    <li>Membuat fitur CRUD User.</li>
+    <li>Memahami penggunaan Route, Controller, Model, dan View.</li>
+</ul>
+
+<hr>
+
+<h4 class="fw-bold">Alat dan Bahan</h4>
+
+<ul>
+    <li>Windows 10/11</li>
+    <li>XAMPP</li>
+    <li>Visual Studio Code</li>
+    <li>Composer</li>
+    <li>Laravel 12</li>
+    <li>MySQL</li>
+    <li>Browser</li>
+    <li>Template SB Admin 2</li>
+</ul>
+
+<hr>
+
+<h4 class="fw-bold">Langkah-Langkah Praktikum</h4>
+
+<h5 class="fw-bold">1. Membuat Project Laravel 12</h5>
+
+<p>
+    Langkah pertama adalah membuat project Laravel baru menggunakan Composer. Setelah proses instalasi selesai,
+    aplikasi dijalankan untuk memastikan project berhasil dibuat dengan baik.
+</p>
+
+<img src="images/lv12-1.png"
+     class="img-fluid report-img"
+     alt="Project Laravel">
+
+<p>
+    Tampilan di atas menunjukkan halaman awal Laravel yang menandakan project berhasil dibuat dan dijalankan.
+</p>
+
+<hr>
+
+<h5 class="fw-bold">2. Membuat Database</h5>
+
+<p>
+    Database dengan nama <b>laravel_sisfo</b> dibuat melalui phpMyAdmin. Database ini nantinya digunakan untuk
+    menyimpan seluruh data aplikasi.
+</p>
+
+<img src="images/lv12-2.png"
+     class="img-fluid report-img"
+     alt="Database">
+
+<p>
+    Setelah database dibuat, konfigurasi koneksi database dilakukan pada file .env.
+</p>
+
+<hr>
+
+<h5 class="fw-bold">3. Konfigurasi Koneksi Database</h5>
+
+<p>
+    Laravel dikonfigurasi agar dapat terhubung dengan database MySQL yang telah dibuat sebelumnya.
+    Konfigurasi dilakukan melalui file .env dengan menyesuaikan nama database, username, dan password.
+</p>
+
+<img src="images/lv12-3.png"
+     class="img-fluid report-img"
+     alt="Konfigurasi Database">
+
+<hr>
+
+<h5 class="fw-bold">4. Membuat Authentication</h5>
+
+<p>
+    Authentication digunakan agar pengguna harus login terlebih dahulu sebelum mengakses halaman dashboard.
+    Setelah authentication berhasil dibuat, Laravel menyediakan halaman Login dan Register secara otomatis.
+</p>
+
+<img src="images/lv12-4.png"
+     class="img-fluid report-img"
+     alt="Login">
+
+<img src="images/lv12-5.png"
+     class="img-fluid report-img"
+     alt="Register">
+
+<hr>
+
+<h5 class="fw-bold">5. Menjalankan Migration</h5>
+
+<p>
+    Migration dijalankan untuk membuat tabel-tabel yang dibutuhkan pada database, termasuk tabel users yang digunakan
+    dalam proses autentikasi.
+</p>
+
+<img src="images/lv12-6.png"
+     class="img-fluid report-img"
+     alt="Migration">
+
+<hr>
+
+<h5 class="fw-bold">6. Modifikasi Tabel Users</h5>
+
+<p>
+    Struktur tabel users disesuaikan dengan kebutuhan aplikasi dengan menambahkan beberapa field seperti username,
+    level, dan status.
+</p>
+
+<img src="images/lv12-7.png"
+     class="img-fluid report-img"
+     alt="Tabel Users">
+
+<p>
+    Field tambahan ini digunakan untuk menyimpan informasi akun dan hak akses pengguna.
+</p>
+
+<hr>
+
+<h5 class="fw-bold">7. Membuat Seeder Admin</h5>
+
+<p>
+    Seeder dibuat untuk menambahkan akun administrator secara otomatis ke dalam database sehingga pengguna dapat
+    langsung melakukan login tanpa registrasi terlebih dahulu.
+</p>
+
+<img src="images/lv12-8.png"
+     class="img-fluid report-img"
+     alt="Seeder">
+
+<img src="images/lv12-9.png"
+     class="img-fluid report-img"
+     alt="Admin Berhasil Ditambahkan">
+
+<hr>
+
+<h5 class="fw-bold">8. Login Menggunakan Akun Admin</h5>
+
+<p>
+    Setelah data admin berhasil ditambahkan, proses login dilakukan untuk memastikan akun dapat digunakan dengan baik.
+</p>
+
+<img src="images/lv12-10.png"
+     class="img-fluid report-img"
+     alt="Login Admin">
+
+<hr>
+
+<h5 class="fw-bold">9. Mengintegrasikan Template SB Admin 2</h5>
+
+<p>
+    Template SB Admin 2 digunakan untuk mempercantik tampilan aplikasi sehingga dashboard terlihat lebih profesional
+    dan mudah digunakan.
+</p>
+
+<img src="images/lv12-11.png"
+     class="img-fluid report-img"
+     alt="SB Admin">
+
+<hr>
+
+<h5 class="fw-bold">10. Membuat Layout Dashboard</h5>
+
+<p>
+    Layout dashboard dibangun menggunakan komponen sidebar, topbar, dan content wrapper. Layout ini menjadi template
+    utama yang digunakan pada halaman setelah login.
+</p>
+
+<img src="images/lv12-12.png"
+     class="img-fluid report-img"
+     alt="Layout Dashboard">
+
+<hr>
+
+<h5 class="fw-bold">11. Membuat Sidebar dan Topbar</h5>
+
+<p>
+    Sidebar digunakan sebagai menu navigasi sedangkan topbar digunakan untuk menampilkan informasi pengguna yang sedang login.
+</p>
+
+<img src="images/lv12-13.png"
+     class="img-fluid report-img"
+     alt="Sidebar">
+
+     <img src="images/lv12-13-1.png"
+     class="img-fluid report-img"
+     alt="Sidebar">
+
+<img src="images/lv12-14.png"
+     class="img-fluid report-img"
+     alt="Topbar">
+
+     <img src="images/lv12-14-1.png"
+     class="img-fluid report-img"
+     alt="Topbar">
+
+<hr>
+
+<h5 class="fw-bold">12. Membuat Halaman Dashboard</h5>
+
+<p>
+    Halaman dashboard dihubungkan dengan layout utama sehingga seluruh komponen tampilan dapat ditampilkan secara konsisten.
+</p>
+
+<img src="images/lv12-.png"
+     class="img-fluid report-img"
+     alt="Dashboard">
+
+<hr>
+
+<h5 class="fw-bold">13. Membuat CRUD User</h5>
+
+<p>
+    Selanjutnya dibuat fitur CRUD User yang memungkinkan administrator menambah, melihat, mengubah, dan menghapus data pengguna.
+</p>
+
+<img src="images/lv12-15.png"
+     class="img-fluid report-img"
+     alt="Daftar User">
+
+     <img src="images/lv12-15-1.png"
+     class="img-fluid report-img"
+     alt="Daftar User">
+
+     <img src="images/lv12-15-2.png"
+     class="img-fluid report-img"
+     alt="Daftar User">
+
+<hr>
+
+<h5 class="fw-bold">14. Menambahkan Data User</h5>
+
+<p>
+    Form tambah user digunakan untuk memasukkan data pengguna baru ke dalam database.
+</p>
+
+<img src="images/lv12-17.png"
+     class="img-fluid report-img"
+     alt="Tambah User">
+    
+<img src="images/lv12-16-1.png"
+     class="img-fluid report-img"
+     alt="Tambah User">
+
+<img src="images/lv12-16-2.png"
+     class="img-fluid report-img"
+     alt="Tambah User">
+
+<hr>
+
+<h5 class="fw-bold">15. Mengubah Data User</h5>
+
+<p>
+    Fitur edit memungkinkan administrator memperbarui data pengguna yang telah tersimpan sebelumnya.
+</p>
+
+<img src="images/lv12-18.png"
+     class="img-fluid report-img"
+     alt="Edit User">
+<img src="images/lv12-18-1.png"
+     class="img-fluid report-img"
+     alt="Edit User">
+
+<img src="images/lv12-18-2.png"
+     class="img-fluid report-img"
+     alt="Edit User">     
+
+<hr>
+
+<h5 class="fw-bold">16. Menghapus Data User</h5>
+
+<p>
+    Fitur delete digunakan untuk menghapus data pengguna yang tidak diperlukan lagi dari sistem.
+</p>
+
+<img src="images/lv12-19.png"
+     class="img-fluid report-img"
+     alt="Delete User">
+<img src="images/lv12-19-1.png"
+     class="img-fluid report-img"
+     alt="Delete User">
+<img src="images/lv12-19-2.png"
+     class="img-fluid report-img"
+     alt="Delete User">
+<hr>
+
+<h5 class="fw-bold">17. Tampilan Akhir Aplikasi</h5>
+
+<p>
+    Setelah seluruh proses selesai, aplikasi berhasil menjalankan fitur autentikasi, dashboard SB Admin 2,
+    dan CRUD User yang terhubung dengan database MySQL.
+</p>
+
+<img src="images/lv12-20.png"
+     class="img-fluid report-img"
+     alt="Hasil Akhir">
+
+<hr>
+
+<h4 class="fw-bold">Hasil Pengujian dan Kendala</h4>
+
+<p>
+    Pengujian dilakukan dengan mencoba proses login, menambah user, mengubah data user, dan menghapus user.
+    Seluruh fitur berhasil dijalankan dengan baik dan data tersimpan ke database sesuai kebutuhan.
+</p>
+
+<p>
+    Kendala yang ditemukan selama praktikum adalah error saat proses seeding karena field level belum memiliki nilai.
+    Masalah tersebut dapat diselesaikan dengan menambahkan field level pada data yang dimasukkan oleh seeder.
+</p>
+
+<hr>
+
+<h4 class="fw-bold">Kesimpulan</h4>
+
+<p>
+    Praktikum ini berhasil membangun aplikasi Sistem Informasi sederhana menggunakan Laravel 12. Melalui praktikum ini
+    dipelajari proses instalasi Laravel, konfigurasi database, pembuatan autentikasi, penggunaan template dashboard,
+    serta implementasi CRUD User. Hasil akhir menunjukkan bahwa Laravel mampu membantu pengembangan aplikasi web
+    secara terstruktur dan efisien.
+</p>
+
+<hr>
+
+            <a href="https://github.com/zahira456/2411532015_Pemweb/tree/main/Laravel/Laravel-sisfo"
+               target="_blank"
+               class="btn btn-dark">
+                <i class="bi bi-github"></i>
+                Lihat Repository GitHub
+            </a>
+
+            <hr>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta cara menghubungi saya.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://github.com/zahira456" class="social-icon me-3">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
