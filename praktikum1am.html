@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum 3 - Aplikasi Mobile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="py-5 mt-5">
+    <div class="container">
+        <h3 class="text-center fw-bold mb-5">
+            Laporan Praktikum 1 <br>
+            Aplikasi Mobile - Flutter
+        </h3>
+
+        <div class="card shadow p-4">
+            <h4 class="fw-bold">Pendahuluan</h4>
+
+            <p>
+                Praktikum ini membahas Input Widgets dan Basic Form pada Flutter.
+                Praktikum dilakukan dengan membuat input menggunakan TextField dan TextFormField,
+                kemudian mengelola input tersebut menggunakan controller, validasi form, dan tombol.
+            </p>
+
+
+            <hr>
+
+            <h4 class="fw-bold">Tujuan Praktikum</h4>
+
+            <ul>
+                <li>Membuat beberapa input widgets pada Flutter.</li>
+                <li>Membuat dan mengontrol inputan dari user.</li>
+                <li>Memahami penggunaan TextField dan TextFormField.</li>
+                <li>Memahami penggunaan TextEditingController dan validasi form.</li>
+                <li>Membuat aplikasi kalkulator sederhana menggunakan input dari user.</li>
+            </ul>
+
+            <hr>
+
+            <h4 class="fw-bold">Alat dan Bahan</h4>
+
+            <ul>
+                <li>Computer / laptop.</li>
+                <li>Flutter development environment.</li>
+                <li>Visual Studio Code.</li>
+                <li>Flutter SDK.</li>
+                <li>Emulator atau perangkat untuk menjalankan aplikasi.</li>
+            </ul>
+
+            <hr>
+
+            <h4 class="fw-bold">Langkah-Langkah Praktikum</h4>
+
+            <h5 class="fw-bold">1. Membuat Basic Form TextField</h5>
+
+            <p>
+                Langkah pertama adalah membuat file Dart baru bernama
+                <b>form-textfield.dart</b> di dalam folder <b>lib</b>.
+                File tersebut digunakan untuk membuat basic form menggunakan widget TextField
+                dan ElevatedButton.
+            </p>
+
+            <p>
+                Tampilan awal terdiri dari teks petunjuk, satu TextField untuk memasukkan nama,
+                dan satu ElevatedButton.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-1.png" class="img-fluid report-img" alt="Tampilan awal Basic Form TextField">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">2. Menambahkan TextEditingController</h5>
+
+            <p>
+                Pada class <b>_MyFormState</b> ditambahkan TextEditingController.
+                Controller digunakan untuk mengambil nilai yang dimasukkan oleh user pada TextField.
+                Method <b>dispose()</b> digunakan untuk membersihkan controller setelah widget selesai digunakan.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-2.png" class="img-fluid report-img" alt="Kode TextEditingController">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">3. Menambahkan Property pada TextField</h5>
+
+            <p>
+                TextField diberikan controller, keyboardType, dan onChanged.
+                Controller digunakan untuk mengelola input, keyboardType menentukan jenis input,
+                sedangkan onChanged digunakan untuk membaca perubahan ketika user mengetik.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-3.png" class="img-fluid report-img" alt="Property TextField">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">4. Menampilkan Input dengan SnackBar</h5>
+
+            <p>
+                Pada ElevatedButton ditambahkan event onPressed untuk mengambil teks dari controller.
+                Nilai tersebut kemudian ditampilkan menggunakan SnackBar ketika tombol ditekan.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-4.png" class="img-fluid report-img" alt="Hasil SnackBar TextField">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">5. Membuat Basic Form TextFormField</h5>
+
+            <p>
+                Selanjutnya dibuat file <b>form-textformfield.dart</b> di dalam folder <b>lib</b>.
+                Form terdiri dari dua TextFormField untuk nama dan email serta sebuah ElevatedButton
+                untuk melakukan submit.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-5.png" class="img-fluid report-img" alt="Tampilan Basic Form TextFormField">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">6. Menambahkan GlobalKey dan Controller</h5>
+
+            <p>
+                Pada class <b>_MyFormTextState</b> dibuat GlobalKey&lt;FormState&gt;,
+                controller untuk nama, dan controller untuk email.
+                GlobalKey digunakan untuk mengakses FormState sehingga validasi dapat dijalankan
+                menggunakan method validate().
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-6.png" class="img-fluid report-img" alt="GlobalKey dan controller">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">7. Menambahkan Validasi Form</h5>
+
+            <p>
+                TextFormField nama diberikan validator untuk memastikan input tidak kosong.
+                TextFormField email juga divalidasi agar tidak kosong dan harus mengandung karakter
+                <b>@</b>.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-7.png" class="img-fluid report-img" alt="Validasi TextFormField">
+            </div>
+
+            <hr>
+
+            <h5 class="fw-bold">8. Menjalankan Submit Form</h5>
+
+            <p>
+                Method <b>_submitForm()</b> dipanggil melalui onPressed pada ElevatedButton.
+                Apabila seluruh validasi berhasil, nama dan email yang telah dimasukkan akan
+                ditampilkan melalui SnackBar.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-8.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
+            </div>
+            <p>validasi email jika tidak mengandung karakter @</p>
+            <div class="text-center my-4">
+                <img src="images/mob3-8-1.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
+            </div>
+            <p>validasi email jika mengandung karakter @</p>
+            <div class="text-center my-4">
+                <img src="images/mob3-8-2.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
+            </div>
+
+            <hr>
+
+            <h4 class="fw-bold">Latihan / Tugas Kelas A</h4>
+
+            <p>
+                Membuat aplikasi kalkulator yang dapat menjalankan operasi kabataku,.
+            </p>
+
+            <h5 class="fw-bold">1. Membuat File Kalkulator</h5>
+
+            <p>
+                Untuk latihan dibuat file baru bernama <b>kalkulator.dart</b> di dalam folder
+                <b>lib</b>. Lalu buat dua Inputan
+
+            <p>
+                Aplikasi menggunakan dua widget TextField untuk menerima angka pertama dan angka kedua.
+                Masing-masing input menggunakan TextEditingController agar nilai dapat diambil saat
+                tombol operasi ditekan.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-10.png" class="img-fluid report-img" alt="Dua input angka">
+            </div>
+
+            <h5 class="fw-bold">2. Membuat Tombol Operasi</h5>
+
+            <p>
+                Digunakan empat ElevatedButton untuk menjalankan operasi tambah (+), kurang (-),
+                kali (×), dan bagi (÷).
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-11.png" class="img-fluid report-img" alt="Tombol operasi kalkulator">
+            </div>
+
+            <h5 class="fw-bold">3. Menampilkan Hasil</h5>
+
+            <p>
+                Setelah tombol operasi ditekan, nilai dari kedua input dihitung sesuai operasi yang dipilih.
+                Hasil perhitungan kemudian ditampilkan menggunakan widget Text.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-12.png" class="img-fluid report-img" alt="Hasil operasi kalkulator">
+            </div>
+
+            <h5 class="fw-bold">4. Hasil Aplikasi</h5>
+
+            <p>
+                Aplikasi kalkulator dapat menerima dua angka dan menjalankan keempat operasi kabataku.
+                Pada operasi pembagian, program juga menangani kondisi ketika angka kedua bernilai nol
+                agar tidak terjadi pembagian dengan nol.
+            </p>
+            <div class="text-center my-4">
+                <img src="images/mob3-13.png" class="img-fluid report-img" alt="Tampilan akhir kalkulator">
+            </div>
+
+            <hr>
+
+        
+        
+            <h4 class="fw-bold">Kesimpulan</h4>
+
+            <p>
+                Praktikum ini memberikan pemahaman mengenai penggunaan TextField dan TextFormField
+                untuk menerima input dari user pada Flutter. Selain itu, dipelajari penggunaan
+                TextEditingController, GlobalKey, validasi form, dan ElevatedButton untuk mengelola input.
+                Pada latihan Kelas A, konsep tersebut diterapkan dalam pembuatan kalkulator sederhana
+                yang dapat melakukan operasi tambah, kurang, kali, dan bagi.
+            </p>
+
+            <hr>
+
+            <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A"
+               target="_blank"
+               class="btn btn-dark">
+                <i class="bi bi-github"></i>
+                Lihat Repository GitHub
+            </a>
+
+            <hr>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta cara menghubungi saya.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://github.com/zahira456" class="social-icon me-3">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
