@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum 2 - Aplikasi Mobile Flutter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #f6f7fb;
+        }
+
+        .report-section {
+            padding-top: 110px;
+            padding-bottom: 70px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+        }
+
+        .report-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #212529;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .section-block {
+            margin-top: 34px;
+        }
+
+        .section-heading {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #212529;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-wrap {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .report-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 520px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .info-card {
+            height: 100%;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .info-card h5 {
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e9ecef;
+        }
+
+        .repo-box {
+            margin-top: 22px;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+
+        .footer-section {
+            background: #212529;
+            color: #fff;
+            padding: 50px 0 25px;
+        }
+
+        .footer-link,
+        .social-icon {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .report-card {
+                padding: 22px;
+            }
+
+            .step-card {
+                padding: 18px;
+            }
+
+            .report-img {
+                max-height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png"
+                     alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="report.html">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="report-section">
+    <div class="container">
+
+        <div class="report-card">
+
+            <div class="text-center mb-4">
+                <h2 class="report-title mb-2">
+                    Laporan Praktikum 2
+                </h2>
+                <h4 class="text-secondary">
+                    Aplikasi Mobile - Flutter
+                </h4>
+            </div>
+
+            <div class="intro-box">
+                <p class="mb-0">
+                    Praktikum 2 membahas <b>Layouting & Styling</b> pada Flutter dengan menggunakan
+                    widget <b>Row</b>, <b>Column</b>, <b>Container</b>, dan <b>ListTile</b>.
+                    Praktikum ini melanjutkan dashboard dari Praktikum 1 dengan menambahkan
+                    tombol aksi dan daftar transaksi. Karena jumlah komponen pada halaman dapat
+                    bertambah, dashboard juga menggunakan <b>SingleChildScrollView</b> agar isi
+                    aplikasi dapat digulir tanpa mengalami overflow.
+                </p>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Tujuan Praktikum</h4>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Layout</h5>
+                            <ul class="mb-0">
+                                <li>Menerapkan <b>Row</b> untuk deretan tombol aksi.</li>
+                                <li>Menerapkan <b>Column</b> untuk daftar transaksi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Styling</h5>
+                            <ul class="mb-0">
+                                <li>Mengatur padding pada komponen.</li>
+                                <li>Mengatur margin atau jarak antar komponen.</li>
+                                <li>Mengatur warna dan tampilan <b>Container</b>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Alat dan Bahan</h4>
+
+                <div class="info-card">
+                    <ul class="mb-0">
+                        <li>Flutter SDK</li>
+                        <li>Visual Studio Code atau Android Studio</li>
+                        <li>Emulator atau perangkat untuk menjalankan aplikasi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Langkah-Langkah Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">1</span>
+                        Menambahkan Row 
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                           Gunakan <b>Row</b> untuk meletakkan tombol Pemasukan, Pengeluaran, dan Transfer sejajar secara horizontal.
+                        </p>
+
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-1.png"
+                                 class="report-img"
+                                 alt="Row"">
+                            <p class="image-caption">
+                                Gambar 1. Row
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">2</span>
+                        Menambahkan column
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            Daftar transaksi mengurut ke bawah, sehingga wajib menggunakan <b>Column</b>.
+
+                        </p>
+
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-2.png"
+                                 class="report-img"
+                                 alt="Column">
+                            <p class="image-caption">
+                                Gambar 2. Column
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">3</span>
+                        Menampilkan BalanceCardWidget
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                           Bungkus semuanya dengan SingleChildScrollView agar layar tidak overflow saat daftar memanjang.
+                        </p>
+
+                        
+
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-3.png"
+                                 class="report-img"
+                                 alt="SingleChildScrollView">
+                            <p class="image-caption">
+                                Gambar 3. SingleChildScrollView membungkus seluruh isi dashboard
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">4</span>
+                       Hasil Akhir Aplikasi
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            Hasil akhir aplikasi Praktikum 2 menampilkan dashboard yang terdiri dari
+                            sapaan pengguna, kartu saldo, tiga tombol aksi, dan daftar transaksi.
+                        </p>
+
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-4.png"
+                                 class="report-img"
+                                 alt="ActionButtonsWidget">
+                            <p class="image-caption">
+                                Gambar 4. Hasil akhir aplikasi Praktikum 2
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+          <div class="section-block">
+                <h4 class="section-heading">Tugas Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">1</span>
+                        Mengubah Warna Trailing Text Pemasukan dan Pengeluaran
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            warna trailing text pengeluaran menjadi merah dan text pemasukan menjadi hijau. 
+                        </p>
+
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-5.png"
+                                 class="report-img"
+                                 alt="Warna trailing text pengeluaran menjadi merah dan text pemasukan menjadi hijau">
+                            <p class="image-caption">
+                                Gambar 5. Warna trailing text pengeluaran menjadi merah dan text pemasukan menjadi hijau
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">2</span>
+                        Menambahkan 2 transaksi fiktif baru
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            Menambahkan 2 transaksi fiktif baru pada daftar transaksi agar terlihat lebih lengkap.
+                        </p>
+
+                            
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-6.png"
+                                 class="report-img"
+                                 alt="Menambahkan 2 transaksi fiktif baru">
+                            <p class="image-caption">
+                                Gambar 6. Menambahkan 2 transaksi fiktif baru
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">3</span>
+                        Hasil Akhir Aplikasi Setelah Tugas Praktikum
+                    </div>
+
+                    <div class="step-content">
+                        <p>
+                            Setelah warna trailing text diubah dan ditambahkan 2 transaksi fiktif baru, hasil akhir aplikasi terlihat lebih informatif.
+                        </p>
+
+                            
+                        <div class="image-wrap">
+                            <img src="images/appm2/appm2-7.png"
+                                 class="report-img"
+                                 alt="Hasil akhir aplikasi setelah tugas praktikum">
+                            <p class="image-caption">
+                                Gambar 7. Hasil akhir aplikasi setelah tugas praktikum
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Hasil Praktikum</h4>
+
+                <div class="result-box">
+                    <p class="mb-0">
+                        Hasil praktikum berupa dashboard aplikasi pengelola keuangan sederhana
+                        yang menggabungkan komponen dari Praktikum 1 dengan layout baru pada
+                        Praktikum 2. Dashboard memiliki sapaan pengguna, kartu saldo yang
+                        interaktif, tombol aksi yang tersusun horizontal, dan daftar transaksi
+                        yang tersusun menggunakan ListTile.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Kesimpulan</h4>
+
+                <div class="result-box">
+                    <p class="mb-0">
+                        Praktikum 2 memberikan pemahaman tentang penyusunan layout dan styling
+                        pada Flutter. Widget Row digunakan untuk menyusun tombol secara horizontal,
+                        Column digunakan untuk menyusun komponen secara vertikal, Container digunakan
+                        untuk mengatur tampilan elemen, dan ListTile digunakan untuk membuat daftar
+                        transaksi yang rapi. Penggunaan SingleChildScrollView juga membantu menjaga
+                        tampilan dashboard ketika isi halaman bertambah.
+                    </p>
+                </div>
+            </div>
+            <div class="repo-box">
+                <h5 class="fw-bold mb-2">Repository GitHub</h5>
+                <p class="text-secondary mb-3">
+                    Source code Praktikum dapat dilihat melalui repository berikut.
+                </p>
+
+                <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A/tree/praktikum2"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-dark">
+                    <i class="bi bi-github me-2"></i>
+                    Lihat Repository GitHub
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2 mb-0">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta laporan praktikum.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/"
+                       class="social-icon me-3"
+                       aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://github.com/zahira456"
+                       class="social-icon me-3"
+                       aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">
+                &copy; 2025 Zahira. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

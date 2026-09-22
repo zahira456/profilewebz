@@ -1,88 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Praktikum 3 - Aplikasi Mobile</title>
+    <title>Laporan Praktikum 1 - Aplikasi Mobile Flutter</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #f6f7fb;
+        }
+
+        .report-section {
+            padding-top: 110px;
+            padding-bottom: 70px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+        }
+
+        .report-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #212529;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .section-block {
+            margin-top: 34px;
+        }
+
+        .section-heading {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #212529;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-wrap {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .report-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 520px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .info-card {
+            height: 100%;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .info-card h5 {
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e9ecef;
+        }
+
+        .repo-box {
+            margin-top: 22px;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .footer-section {
+            background: #212529;
+            color: #fff;
+            padding: 50px 0 25px;
+        }
+
+        .footer-link,
+        .social-icon {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .report-card {
+                padding: 22px;
+            }
+
+            .step-card {
+                padding: 18px;
+            }
+
+            .report-img {
+                max-height: 420px;
+            }
+        }
+    </style>
+
+<style>
+.report-card .step-content .report-img {
+    display: block;
+    width: auto;
+    max-width: 90%;
+    max-height: 500px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .report-card .step-content .report-img {
+        max-width: 100%;
+        max-height: 420px;
+    }
+}
+</style>
+
 </head>
 <body>
-
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="images/logo.png" alt="Logo"
-                     style="height: 35px; width: auto; margin-right: 8px; margin-top: auto;">
+                <img src="images/logo.png"
+                     alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px;">
                 Zhone
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
-                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="report.html">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Contact</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-
-<section class="py-5 mt-5">
+<section class="report-section">
     <div class="container">
-        <h3 class="text-center fw-bold mb-5">
-            Laporan Praktikum 1 <br>
-            Aplikasi Mobile - Flutter
-        </h3>
 
-        <div class="card shadow p-4">
-            <h4 class="fw-bold">Pendahuluan</h4>
+        <div class="report-card">
+
+            <div class="text-center mb-4">
+                <h2 class="report-title mb-2">
+                    Laporan Praktikum 3
+                </h2>
+                <h4 class="text-secondary">
+                    Input Widgets dan Basic Form
+                </h4>
+            </div>
+
+<class="report-section">
+    <div class="container">
+        <div class="report-card">
+            <div class="intro-box">
+<h4 class="fw-bold">Pendahuluan</h4>
 
             <p>
                 Praktikum ini membahas Input Widgets dan Basic Form pada Flutter.
                 Praktikum dilakukan dengan membuat input menggunakan TextField dan TextFormField,
                 kemudian mengelola input tersebut menggunakan controller, validasi form, dan tombol.
             </p>
-
-
-            <hr>
-
-            <h4 class="fw-bold">Tujuan Praktikum</h4>
-
-            <ul>
+</div>
+            <div class="section-block">
+    <h4 class="section-heading">Tujuan Praktikum</h4>
+    <div class="info-card">
+        <ul>
                 <li>Membuat beberapa input widgets pada Flutter.</li>
                 <li>Membuat dan mengontrol inputan dari user.</li>
                 <li>Memahami penggunaan TextField dan TextFormField.</li>
                 <li>Memahami penggunaan TextEditingController dan validasi form.</li>
                 <li>Membuat aplikasi kalkulator sederhana menggunakan input dari user.</li>
             </ul>
-
-            <hr>
-
-            <h4 class="fw-bold">Alat dan Bahan</h4>
-
-            <ul>
+    </div>
+</div>
+            <div class="section-block">
+    <h4 class="section-heading">Alat dan Bahan</h4>
+    <div class="info-card">
+        <ul>
                 <li>Computer / laptop.</li>
                 <li>Flutter development environment.</li>
                 <li>Visual Studio Code.</li>
                 <li>Flutter SDK.</li>
                 <li>Emulator atau perangkat untuk menjalankan aplikasi.</li>
             </ul>
-
-            <hr>
-
-            <h4 class="fw-bold">Langkah-Langkah Praktikum</h4>
-
-            <h5 class="fw-bold">1. Membuat Basic Form TextField</h5>
-
+    </div>
+</div>
+            <div class="section-block">
+<h4 class="section-heading">Langkah-Langkah Praktikum</h4>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">1</span>Membuat Basic Form TextField
+        </div>
+        <div class="step-content">
             <p>
                 Langkah pertama adalah membuat file Dart baru bernama
                 <b>form-textfield.dart</b> di dalam folder <b>lib</b>.
@@ -94,119 +306,135 @@
                 Tampilan awal terdiri dari teks petunjuk, satu TextField untuk memasukkan nama,
                 dan satu ElevatedButton.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-1.png" class="img-fluid report-img" alt="Tampilan awal Basic Form TextField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-1.png" class="img-fluid report-img" alt="Tampilan awal Basic Form TextField">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">2. Menambahkan TextEditingController</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">2</span>Menambahkan TextEditingController
+        </div>
+        <div class="step-content">
             <p>
                 Pada class <b>_MyFormState</b> ditambahkan TextEditingController.
                 Controller digunakan untuk mengambil nilai yang dimasukkan oleh user pada TextField.
                 Method <b>dispose()</b> digunakan untuk membersihkan controller setelah widget selesai digunakan.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-2.png" class="img-fluid report-img" alt="Kode TextEditingController">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-2.png" class="img-fluid report-img" alt="Kode TextEditingController">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">3. Menambahkan Property pada TextField</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">3</span>Menambahkan Property pada TextField
+        </div>
+        <div class="step-content">
             <p>
                 TextField diberikan controller, keyboardType, dan onChanged.
                 Controller digunakan untuk mengelola input, keyboardType menentukan jenis input,
                 sedangkan onChanged digunakan untuk membaca perubahan ketika user mengetik.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-3.png" class="img-fluid report-img" alt="Property TextField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-3.png" class="img-fluid report-img" alt="Property TextField">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">4. Menampilkan Input dengan SnackBar</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">4</span>Menampilkan Input dengan SnackBar
+        </div>
+        <div class="step-content">
             <p>
                 Pada ElevatedButton ditambahkan event onPressed untuk mengambil teks dari controller.
                 Nilai tersebut kemudian ditampilkan menggunakan SnackBar ketika tombol ditekan.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-4.png" class="img-fluid report-img" alt="Hasil SnackBar TextField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-4.png" class="img-fluid report-img" alt="Hasil SnackBar TextField">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">5. Membuat Basic Form TextFormField</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">5</span>Membuat Basic Form TextFormField
+        </div>
+        <div class="step-content">
             <p>
                 Selanjutnya dibuat file <b>form-textformfield.dart</b> di dalam folder <b>lib</b>.
                 Form terdiri dari dua TextFormField untuk nama dan email serta sebuah ElevatedButton
                 untuk melakukan submit.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-5.png" class="img-fluid report-img" alt="Tampilan Basic Form TextFormField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-5.png" class="img-fluid report-img" alt="Tampilan Basic Form TextFormField">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">6. Menambahkan GlobalKey dan Controller</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">6</span>Menambahkan GlobalKey dan Controller
+        </div>
+        <div class="step-content">
             <p>
                 Pada class <b>_MyFormTextState</b> dibuat GlobalKey&lt;FormState&gt;,
                 controller untuk nama, dan controller untuk email.
                 GlobalKey digunakan untuk mengakses FormState sehingga validasi dapat dijalankan
                 menggunakan method validate().
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-6.png" class="img-fluid report-img" alt="GlobalKey dan controller">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-6.png" class="img-fluid report-img" alt="GlobalKey dan controller">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">7. Menambahkan Validasi Form</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">7</span>Menambahkan Validasi Form
+        </div>
+        <div class="step-content">
             <p>
                 TextFormField nama diberikan validator untuk memastikan input tidak kosong.
                 TextFormField email juga divalidasi agar tidak kosong dan harus mengandung karakter
                 <b>@</b>.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-7.png" class="img-fluid report-img" alt="Validasi TextFormField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-7.png" class="img-fluid report-img" alt="Validasi TextFormField">
             </div>
-
-            <hr>
-
-            <h5 class="fw-bold">8. Menjalankan Submit Form</h5>
-
+        </div>
+    </div>
+<div class="step-card">
+        <div class="step-title">
+            <span class="step-number">8</span>Menjalankan Submit Form
+        </div>
+        <div class="step-content">
             <p>
                 Method <b>_submitForm()</b> dipanggil melalui onPressed pada ElevatedButton.
                 Apabila seluruh validasi berhasil, nama dan email yang telah dimasukkan akan
                 ditampilkan melalui SnackBar.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-8.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-8.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
             </div>
             <p>validasi email jika tidak mengandung karakter @</p>
-            <div class="text-center my-4">
-                <img src="images/mob3-8-1.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-8-1.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
             </div>
             <p>validasi email jika mengandung karakter @</p>
-            <div class="text-center my-4">
-                <img src="images/mob3-8-2.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-8-2.png" class="img-fluid report-img" alt="Hasil submit TextFormField">
             </div>
-
-            <hr>
-
-            <h4 class="fw-bold">Latihan / Tugas Kelas A</h4>
-
-            <p>
+        </div>
+    </div>
+</div>
+            <div class="section-block">
+    <h4 class="section-heading">Latihan / Tugas Kelas A</h4>
+    <p>
                 Membuat aplikasi kalkulator yang dapat menjalankan operasi kabataku,.
             </p>
-
-            <h5 class="fw-bold">1. Membuat File Kalkulator</h5>
-
+    <div class="step-card">
+        <div class="step-title">
+            <span class="step-number">1</span> Membuat File Kalkulator
+        </div>
+        <div class="step-content">
             <p>
                 Untuk latihan dibuat file baru bernama <b>kalkulator.dart</b> di dalam folder
                 <b>lib</b>. Lalu buat dua Inputan
@@ -216,83 +444,91 @@
                 Masing-masing input menggunakan TextEditingController agar nilai dapat diambil saat
                 tombol operasi ditekan.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-10.png" class="img-fluid report-img" alt="Dua input angka">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-10.png" class="img-fluid report-img" alt="Dua input angka">
             </div>
-
-            <h5 class="fw-bold">2. Membuat Tombol Operasi</h5>
-
+        </div>
+    </div><div class="step-card">
+        <div class="step-title">
+            <span class="step-number">2</span> Membuat Tombol Operasi
+        </div>
+        <div class="step-content">
             <p>
                 Digunakan empat ElevatedButton untuk menjalankan operasi tambah (+), kurang (-),
                 kali (×), dan bagi (÷).
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-11.png" class="img-fluid report-img" alt="Tombol operasi kalkulator">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-11.png" class="img-fluid report-img" alt="Tombol operasi kalkulator">
             </div>
-
-            <h5 class="fw-bold">3. Menampilkan Hasil</h5>
-
+        </div>
+    </div><div class="step-card">
+        <div class="step-title">
+            <span class="step-number">3</span> Menampilkan Hasil
+        </div>
+        <div class="step-content">
             <p>
                 Setelah tombol operasi ditekan, nilai dari kedua input dihitung sesuai operasi yang dipilih.
                 Hasil perhitungan kemudian ditampilkan menggunakan widget Text.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-12.png" class="img-fluid report-img" alt="Hasil operasi kalkulator">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-12.png" class="img-fluid report-img" alt="Hasil operasi kalkulator">
             </div>
-
-            <h5 class="fw-bold">4. Hasil Aplikasi</h5>
-
+        </div>
+    </div><div class="step-card">
+        <div class="step-title">
+            <span class="step-number">4</span> Hasil Aplikasi
+        </div>
+        <div class="step-content">
             <p>
                 Aplikasi kalkulator dapat menerima dua angka dan menjalankan keempat operasi kabataku.
                 Pada operasi pembagian, program juga menangani kondisi ketika angka kedua bernilai nol
                 agar tidak terjadi pembagian dengan nol.
             </p>
-            <div class="text-center my-4">
-                <img src="images/mob3-13.png" class="img-fluid report-img" alt="Tampilan akhir kalkulator">
+            <div class="image-wrap">
+                <img src="images/appm1/mob3-13.png" class="img-fluid report-img" alt="Tampilan akhir kalkulator">
             </div>
-
-            <hr>
-
-        
-        
-            <h4 class="fw-bold">Kesimpulan</h4>
-
-            <p>
+        </div>
+    </div>
+</div>
+            <div class="section-block">
+    <h4 class="section-heading">Kesimpulan</h4>
+    <div class="result-box">
+        <p>
                 Praktikum ini memberikan pemahaman mengenai penggunaan TextField dan TextFormField
                 untuk menerima input dari user pada Flutter. Selain itu, dipelajari penggunaan
                 TextEditingController, GlobalKey, validasi form, dan ElevatedButton untuk mengelola input.
                 Pada latihan Kelas A, konsep tersebut diterapkan dalam pembuatan kalkulator sederhana
                 yang dapat melakukan operasi tambah, kurang, kali, dan bagi.
             </p>
-
-            <hr>
-
-            <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A"
+    </div>
+</div>
+            <div class="repo-box">
+    <h5 class="fw-bold">Repository GitHub</h5>
+    <p class="text-secondary">Source code Praktikum dapat dilihat melalui repository berikut.</p>
+    <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A"
                target="_blank"
                class="btn btn-dark">
                 <i class="bi bi-github"></i>
                 Lihat Repository GitHub
             </a>
-
-            <hr>
+</div>
         </div>
     </div>
 </section>
-
 <footer class="footer-section">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Zhone</h5>
-                <p class="small mt-2">
+                <p class="small mt-2 mb-0">
                     Website portfolio pribadi saya yang berisi informasi tentang diri saya,
-                    proyek yang telah saya buat, serta cara menghubungi saya.
+                    proyek yang telah saya buat, serta laporan praktikum.
                 </p>
             </div>
 
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Quick Links</h5>
-                <ul class="list-unstyled mt-2">
+                <ul class="list-unstyled mt-2 mb-0">
                     <li><a href="index.html" class="footer-link">Home</a></li>
                     <li><a href="about.html" class="footer-link">About</a></li>
                     <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
@@ -304,10 +540,15 @@
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold">Follow Me</h5>
                 <div class="d-flex mt-2">
-                    <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3">
+                    <a href="https://www.instagram.com/za_niverse/"
+                       class="social-icon me-3"
+                       aria-label="Instagram">
                         <i class="bi bi-instagram"></i>
                     </a>
-                    <a href="https://github.com/zahira456" class="social-icon me-3">
+
+                    <a href="https://github.com/zahira456"
+                       class="social-icon me-3"
+                       aria-label="GitHub">
                         <i class="bi bi-github"></i>
                     </a>
                 </div>
@@ -315,11 +556,18 @@
         </div>
 
         <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+            <p class="mb-0 small">
+                &copy; 2025 Zahira. All Rights Reserved.
+            </p>
         </div>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </body>
 </html>
