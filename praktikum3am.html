@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum 3 - Aplikasi Mobile Flutter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #f6f7fb;
+        }
+
+        .report-section {
+            padding-top: 110px;
+            padding-bottom: 70px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+        }
+
+        .report-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #212529;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .section-block {
+            margin-top: 34px;
+        }
+
+        .section-heading {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #212529;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-wrap {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .report-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 520px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .info-card {
+            height: 100%;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .info-card h5 {
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e9ecef;
+        }
+
+        .repo-box {
+            margin-top: 22px;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+
+        .footer-section {
+            background: #212529;
+            color: #fff;
+            padding: 50px 0 25px;
+        }
+
+        .footer-link,
+        .social-icon {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .report-card {
+                padding: 22px;
+            }
+
+            .step-card {
+                padding: 18px;
+            }
+
+            .report-img {
+                max-height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png"
+                     alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="report.html">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="report-section">
+    <div class="container">
+
+        <div class="report-card">
+
+            <div class="text-center mb-4">
+                <h2 class="report-title mb-2">
+                    Laporan Praktikum 3
+                </h2>
+                <h4 class="text-secondary">
+                    Aplikasi Mobile - Flutter
+                </h4>
+            </div>
+
+            <div class="intro-box">
+                <p class="mb-0">
+                    Praktikum 3 membahas <b>Input Widgets &amp; Forms</b> pada Flutter dengan fokus pada
+                    penangkapan data pengguna, penggunaan <b>DropdownButtonFormField</b>, dan validasi input.
+                    Form digunakan untuk menerima judul transaksi, nominal, dan kategori serta memastikan
+                    data yang dimasukkan sesuai sebelum diproses.
+                </p>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Tujuan Praktikum</h4>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Input Data</h5>
+                            <ul class="mb-0">
+                                <li>Menangkap teks dari pengguna menggunakan <b>controller</b>.</li>
+                                <li>Membuat form input untuk data transaksi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Dropdown &amp; Validasi</h5>
+                            <ul class="mb-0">
+                                <li>Menerapkan <b>dropdown</b> statis untuk kategori transaksi.</li>
+                                <li>Melakukan validasi agar data kosong atau format salah dapat dicegah.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Alat dan Bahan</h4>
+
+                <div class="info-card">
+                    <ul class="mb-0">
+                        <li>Flutter SDK</li>
+                        <li>Visual Studio Code atau Android Studio</li>
+                        <li>Emulator atau perangkat untuk menjalankan aplikasi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Langkah-Langkah Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">1</span>
+                        Menyiapkan State dan Controller
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Gunakan <b>StatefulWidget</b> karena isi formulir dapat berubah ketika pengguna
+                            mengetik dan memilih kategori. Siapkan <b>GlobalKey</b> untuk validasi, controller
+                            untuk judul dan nominal, serta state untuk dropdown kategori.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-1.png" class="report-img" alt="StatefulWidget, GlobalKey, dan Controller">
+                            <p class="image-caption">Gambar 1. Menyiapkan StatefulWidget, GlobalKey, dan Controller</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">2</span>
+                        Membuat Kolom Input
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Bungkus seluruh kolom dengan widget <b>Form</b> dan hubungkan dengan <b>_formKey</b>.
+                            Buat <b>TextFormField</b> untuk Judul Transaksi dan Nominal. Pada nominal digunakan
+                            <b>TextInputType.number</b> serta validasi agar nilai tidak kosong dan harus berupa angka yang valid.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-2.png" class="report-img" alt="Input Judul Transaksi dan Nominal">
+                            <p class="image-caption">Gambar 2. Input Judul Transaksi dan Nominal beserta validasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">3</span>
+                        Dropdown dan Tombol Simpan
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Tambahkan <b>DropdownButtonFormField</b> untuk memilih kategori <b>Makanan, Transportasi,
+                            Hiburan,</b> atau <b>Lainnya</b>. Selanjutnya tambahkan tombol <b>Simpan Transaksi</b>
+                            untuk menjalankan validasi keseluruhan. Jika valid, aplikasi menampilkan <b>SnackBar</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-3.png" class="report-img" alt="Dropdown kategori dan tombol simpan">
+                            <p class="image-caption">Gambar 3. Dropdown kategori dan tombol Simpan Transaksi</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">4</span>
+                        Output
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Setelah tombol Simpan ditekan, jika semua input valid, aplikasi menampilkan <b>SnackBar</b>
+                            dengan pesan "Transaksi berhasil disimpan!".
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-4.png" class="report-img" alt="Output transaksi berhasil">
+                            <p class="image-caption">Gambar 4. Output ketika transaksi berhasil disimpan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Tugas Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">1</span>
+                        Menambahkan Input Tanggal Transaksi
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Tambahkan satu input baru <b>sebelum tombol Simpan</b> untuk mengisi <b>Tanggal Transaksi</b>.
+                            Sesuai modul, input dapat dibuat menggunakan <b>TextFormField</b> dengan format <b>DD/MM/YYYY</b>
+                            atau menggunakan fungsi <b>showDatePicker</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-5.png" class="report-img" alt="Input tanggal transaksi">
+                            <p class="image-caption">Gambar 5. Penambahan input Tanggal Transaksi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">2</span>
+                        Menambahkan Validasi Tanggal
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Berikan validasi pada input tanggal agar <b>wajib diisi</b>. Jika tanggal tidak diisi
+                            ketika tombol Simpan ditekan, form menampilkan pesan kesalahan dan data tidak diproses.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-6.png" class="report-img" alt="Validasi tanggal wajib diisi">
+                            <p class="image-caption">Gambar 6. Validasi Tanggal Transaksi wajib diisi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">3</span>
+                        Hasil Akhir Aplikasi Setelah Tugas
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Setelah tugas selesai, form transaksi memiliki input Judul Transaksi, Nominal, Kategori,
+                            dan Tanggal Transaksi. Form kemudian dapat divalidasi sebelum proses simpan dijalankan.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm3/appm3-7.png" class="report-img" alt="Hasil akhir aplikasi setelah tugas">
+                            <p class="image-caption">Gambar 7. Hasil akhir aplikasi setelah tugas praktikum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Hasil Praktikum</h4>
+                <div class="result-box">
+                    <p class="mb-0">
+                        Hasil praktikum berupa halaman form transaksi pada Flutter yang dapat menerima Judul Transaksi,
+                        Nominal, dan Kategori. Form menggunakan controller untuk mengambil data, dropdown untuk memilih
+                        kategori, serta validasi untuk mencegah input kosong atau format nominal yang salah. Pada tugas,
+                        ditambahkan Tanggal Transaksi sebelum tombol Simpan dengan validasi wajib diisi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Kesimpulan</h4>
+                <div class="result-box">
+                    <p class="mb-0">
+                        Praktikum 3 memberikan pemahaman tentang pembuatan form input pada Flutter. <b>TextFormField</b>
+                        digunakan untuk menerima data teks dan nominal, <b>DropdownButtonFormField</b> digunakan untuk
+                        memilih kategori, sedangkan <b>GlobalKey</b> dan validator digunakan untuk memeriksa data sebelum
+                        disimpan. Penambahan Tanggal Transaksi pada tugas menunjukkan penerapan input tambahan beserta
+                        validasi wajib diisi pada sebuah form.
+                    </p>
+                </div>
+            </div>
+
+            <div class="repo-box">
+                <h5 class="fw-bold mb-2">Repository GitHub</h5>
+                <p class="text-secondary mb-3">
+                    Source code Praktikum dapat dilihat melalui repository berikut.
+                </p>
+                <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A/tree/praktikum3"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                    <i class="bi bi-github me-2"></i>
+                    Lihat Repository GitHub
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2 mb-0">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta laporan praktikum.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/"
+                       class="social-icon me-3"
+                       aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://github.com/zahira456"
+                       class="social-icon me-3"
+                       aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">
+                &copy; 2025 Zahira. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
