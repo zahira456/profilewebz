@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum 4 - Aplikasi Mobile Flutter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #f6f7fb;
+        }
+
+        .report-section {
+            padding-top: 110px;
+            padding-bottom: 70px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+        }
+
+        .report-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #212529;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .section-block {
+            margin-top: 34px;
+        }
+
+        .section-heading {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #212529;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-wrap {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .report-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 520px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .info-card {
+            height: 100%;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .info-card h5 {
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e9ecef;
+        }
+
+        .repo-box {
+            margin-top: 22px;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+
+        .footer-section {
+            background: #212529;
+            color: #fff;
+            padding: 50px 0 25px;
+        }
+
+        .footer-link,
+        .social-icon {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .report-card {
+                padding: 22px;
+            }
+
+            .step-card {
+                padding: 18px;
+            }
+
+            .report-img {
+                max-height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png"
+                     alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="report.html">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="report-section">
+    <div class="container">
+
+        <div class="report-card">
+
+            <div class="text-center mb-4">
+                <h2 class="report-title mb-2">
+                    Laporan Praktikum 4
+                </h2>
+                <h4 class="text-secondary">
+                    Aplikasi Mobile - Flutter
+                </h4>
+            </div>
+
+            <div class="intro-box">
+                <p class="mb-0">
+                    Praktikum 4 membahas <b>Navigasi &amp; Passing Data</b> pada Flutter dengan fokus pada penggunaan
+                    <b>Navigator.push</b>, <b>Navigator.pop</b>, konsep <b>Stack</b>, serta pengiriman data antarhalaman
+                    melalui <b>Constructor</b>. Data transaksi dikirim dari halaman Dashboard ke halaman Detail Transaksi
+                    sesuai data yang dipilih pengguna.
+                </p>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Tujuan Praktikum</h4>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Navigasi Halaman</h5>
+                            <ul class="mb-0">
+                                <li>Menerapkan <b>Navigator.push</b> untuk berpindah ke layar baru.</li>
+                                <li>Menggunakan <b>Navigator.pop</b> untuk menutup layar dan kembali ke halaman sebelumnya.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Passing Data</h5>
+                            <ul class="mb-0">
+                                <li>Mengirim data antarhalaman melalui <b>Constructor</b>.</li>
+                                <li>Menggunakan variabel <b>final</b> dan parameter <b>required</b> sebagai penerima data.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Alat dan Bahan</h4>
+
+                <div class="info-card">
+                    <ul class="mb-0">
+                        <li>Flutter SDK</li>
+                        <li>Code Editor : VS Code atau Android Studio</li>
+                        <li>Emulator / Device</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Langkah-Langkah Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">1</span>
+                        Membuat Halaman Detail Transaksi
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Buat file <b>transaction_detail_screen.dart</b> di dalam folder <b>lib</b>. Siapkan variabel
+                            <b>final</b> untuk menerima <b>title</b>, <b>amount</b>, <b>category</b>, dan <b>date</b>.
+                            Gunakan Constructor dengan <b>required</b> agar data tersebut wajib diberikan ketika halaman
+                            detail dibuat, kemudian tampilkan data pada UI menggunakan <b>Text</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-1.png" class="report-img" alt="Membuat halaman detail transaksi">
+                            <p class="image-caption">Gambar 1. Membuat halaman Detail Transaksi dan Constructor penerima data</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">2</span>
+                        Pindah ke Detail dan Mengirim Data (Push)
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Buka kembali <b>dashboard_screen.dart</b>. Pada <b>ListTile</b> transaksi, tambahkan fungsi
+                            <b>onTap</b> dan gunakan <b>Navigator.push</b> dengan <b>MaterialPageRoute</b>. Isi data
+                            Constructor <b>TransactionDetailScreen</b> berupa judul, nominal, kategori, dan tanggal sesuai
+                            dengan transaksi yang diklik.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-2.png" class="report-img" alt="Navigator push dan passing data">
+                            <p class="image-caption">Gambar 2. Navigator.push untuk membuka Detail Transaksi dan mengirim data</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">3</span>
+                        Menutup Layar dengan Navigator.pop
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Kembali ke <b>add_transaction_screen.dart</b>. Setelah tombol <b>Simpan</b> ditekan dan form
+                            dinyatakan valid, tampilkan <b>SnackBar</b> kemudian gunakan <b>Navigator.pop(context)</b>.
+                            Fungsi tersebut menutup halaman form dan mengembalikan pengguna ke halaman Dashboard.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-3.png" class="report-img" alt="Navigator pop untuk kembali ke Dashboard">
+                            <p class="image-caption">Gambar 3. Navigator.pop untuk kembali dari Form ke Dashboard</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">4</span>
+                        Hasil Akhir Navigasi dan Passing Data
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Setelah langkah selesai, daftar transaksi pada Dashboard dapat diklik untuk membuka halaman
+                            Detail Transaksi. Halaman detail menampilkan data sesuai transaksi yang dipilih, sedangkan
+                            tombol panah kembali muncul otomatis pada <b>AppBar</b> karena halaman dibuka menggunakan
+                            <b>Navigator.push</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-4.png" class="report-img" alt="Hasil akhir navigasi dan passing data">
+                            <p class="image-caption">Gambar 4. Hasil akhir Dashboard dan Detail Transaksi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Tugas Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">1</span>
+                        Menambahkan Input Tanggal Transaksi
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Tambahkan satu input baru <b>sebelum tombol Simpan</b> pada <b>add_transaction_screen.dart</b>
+                            untuk mengisi <b>Tanggal Transaksi</b>. Sesuai modul, input dapat menggunakan <b>TextFormField</b>
+                            dengan format <b>DD/MM/YYYY</b> atau menggunakan fungsi <b>showDatePicker</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-5.png" class="report-img" alt="Menambahkan input tanggal transaksi">
+                            <p class="image-caption">Gambar 5. Penambahan input Tanggal Transaksi sebelum tombol Simpan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">2</span>
+                        Menggunakan showDatePicker
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Jika menggunakan <b>showDatePicker</b>, buat input tanggal dapat dipilih melalui kalender.
+                            Setelah tanggal dipilih, tampilkan hasilnya pada field tanggal dengan format <b>DD/MM/YYYY</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-6.png" class="report-img" alt="Pemilihan tanggal dengan showDatePicker">
+                            <p class="image-caption">Gambar 6. Pemilihan Tanggal Transaksi menggunakan showDatePicker</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title">
+                        <span class="step-number">3</span>
+                        Memberikan Validasi Wajib Diisi
+                    </div>
+                    <div class="step-content">
+                        <p>
+                            Berikan validasi pada input tanggal agar <b>wajib diisi</b>. Ketika tombol <b>Simpan</b> ditekan
+                            dan tanggal belum dipilih atau diisi, form harus menampilkan pesan kesalahan. Jika seluruh
+                            input valid, proses penyimpanan tetap dilanjutkan dan halaman dapat ditutup dengan
+                            <b>Navigator.pop</b>.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm4/appm4-7.png" class="report-img" alt="Validasi tanggal wajib diisi">
+                            <p class="image-caption">Gambar 7. Validasi Tanggal Transaksi wajib diisi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Hasil Praktikum</h4>
+                <div class="result-box">
+                    <p class="mb-0">
+                        Hasil praktikum berupa aplikasi Flutter yang memiliki beberapa halaman dan dapat berpindah
+                        menggunakan <b>Navigator.push</b> serta kembali menggunakan <b>Navigator.pop</b>. Data transaksi
+                        dapat dikirim dari Dashboard ke halaman Detail Transaksi melalui Constructor, sehingga detail yang
+                        ditampilkan menyesuaikan transaksi yang dipilih. Pada tugas, form transaksi juga memiliki input
+                        Tanggal Transaksi dengan validasi wajib diisi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Kesimpulan</h4>
+                <div class="result-box">
+                    <p class="mb-0">
+                        Praktikum 4 memberikan pemahaman tentang navigasi halaman pada Flutter menggunakan konsep Stack.
+                        <b>Navigator.push</b> digunakan untuk menambahkan dan membuka halaman baru, sedangkan
+                        <b>Navigator.pop</b> digunakan untuk kembali ke halaman sebelumnya. Passing data dilakukan melalui
+                        Constructor dengan variabel <b>final</b> dan parameter <b>required</b>. Latihan pada modul menambahkan
+                        Tanggal Transaksi beserta validasi wajib diisi pada form.
+                    </p>
+                </div>
+            </div>
+
+            <div class="repo-box">
+                <h5 class="fw-bold mb-2">Repository GitHub</h5>
+                <p class="text-secondary mb-3">
+                    Source code Praktikum dapat dilihat melalui repository berikut.
+                </p>
+                <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A/tree/praktikum4"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                    <i class="bi bi-github me-2"></i>
+                    Lihat Repository GitHub
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2 mb-0">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta laporan praktikum.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/"
+                       class="social-icon me-3"
+                       aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="https://github.com/zahira456"
+                       class="social-icon me-3"
+                       aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">
+                &copy; 2025 Zahira. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
