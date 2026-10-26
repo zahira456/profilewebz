@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum 5 - Aplikasi Mobile Flutter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #f6f7fb;
+        }
+
+        .report-section {
+            padding-top: 110px;
+            padding-bottom: 70px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+        }
+
+        .report-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #212529;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .section-block {
+            margin-top: 34px;
+        }
+
+        .section-heading {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #212529;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-wrap {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .report-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 520px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .info-card {
+            height: 100%;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .info-card h5 {
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e9ecef;
+        }
+
+        .repo-box {
+            margin-top: 22px;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .footer-section {
+            background: #212529;
+            color: #fff;
+            padding: 50px 0 25px;
+        }
+
+        .footer-link,
+        .social-icon {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .report-card {
+                padding: 22px;
+            }
+
+            .step-card {
+                padding: 18px;
+            }
+
+            .report-img {
+                max-height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png"
+                     alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="report-section">
+    <div class="container">
+        <div class="report-card">
+
+            <div class="text-center mb-4">
+                <h2 class="report-title mb-2">Laporan Praktikum 5</h2>
+                <h4 class="text-secondary">Aplikasi Mobile - Flutter</h4>
+            </div>
+
+            <div class="intro-box">
+                <p class="mb-0">
+                    Praktikum 5 membahas <b>Arsitektur Navigasi</b> pada Flutter menggunakan
+                    <b>Named Routes</b> dan <b>BottomNavigationBar</b>. Named Routes digunakan untuk
+                    mendaftarkan rute halaman pada <b>MaterialApp</b>, sedangkan BottomNavigationBar
+                    digunakan untuk berpindah antara halaman Beranda, Riwayat, dan Profil. Pada pengembangan
+                    aplikasi final, fitur ini digabungkan dengan autentikasi pengguna, penyimpanan transaksi,
+                    serta validasi agar pengeluaran tidak melebihi saldo yang tersedia.
+                </p>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Tujuan Praktikum</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Named Routes</h5>
+                            <ul class="mb-0">
+                                <li>Menerapkan navigasi terpusat melalui properti <b>routes</b> pada MaterialApp.</li>
+                                <li>Mengatur halaman awal menggunakan <b>initialRoute</b>.</li>
+                                <li>Membuka halaman tambah transaksi menggunakan <b>Navigator.pushNamed</b>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <h5>Bottom Navigation Bar</h5>
+                            <ul class="mb-0">
+                                <li>Membuat penampung halaman menggunakan <b>MainScreen</b> berbasis StatefulWidget.</li>
+                                <li>Mengatur tab aktif menggunakan <b>_selectedIndex</b> dan <b>setState</b>.</li>
+                                <li>Mengintegrasikan halaman Beranda, Riwayat, dan Profil.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Alat dan Bahan</h4>
+                <div class="info-card">
+                    <ul class="mb-0">
+                        <li>Flutter SDK</li>
+                        <li>Code Editor: Visual Studio Code atau Android Studio</li>
+                        <li>Emulator atau perangkat Android</li>
+                        <li>Proyek Expense Tracker dari praktikum sebelumnya</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Langkah-Langkah Praktikum</h4>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">1</span>Mendaftarkan Named Routes</div>
+                    <div class="step-content">
+                        <p>
+                            Buka file <b>main.dart</b>. Sesuai modul, pemanggilan halaman melalui properti
+                            <b>home</b> diganti dengan <b>initialRoute</b> dan <b>routes</b>. Rute
+                            <b>'/'</b> diarahkan ke MainScreen, sedangkan rute <b>'/add'</b> diarahkan
+                            ke halaman AddTransactionScreen. Dengan demikian, alamat navigasi halaman
+                            didefinisikan pada satu tempat.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-1.png" class="report-img" alt="Pendaftaran Named Routes pada main.dart">
+                            <p class="image-caption">Gambar 1. Pendaftaran initialRoute dan routes pada main.dart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">2</span>Membuat Penampung Tab MainScreen</div>
+                    <div class="step-content">
+                        <p>
+                            Buat file <b>main_screen.dart</b> dan jadikan <b>MainScreen</b> sebagai
+                            <b>StatefulWidget</b>. Siapkan variabel <b>_selectedIndex</b> untuk menyimpan
+                            indeks tab aktif dan sebuah daftar widget yang berisi halaman Dashboard,
+                            Riwayat, serta Profil. Nilai indeks awal adalah <b>0</b> sehingga halaman
+                            pertama yang ditampilkan adalah Beranda.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-2.png" class="report-img" alt="MainScreen dan daftar halaman">
+                            <p class="image-caption">Gambar 2. MainScreen, _selectedIndex, dan daftar halaman</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">3</span>Merangkai BottomNavigationBar</div>
+                    <div class="step-content">
+                        <p>
+                            Lengkapi method <b>build</b> pada MainScreen dengan <b>BottomNavigationBar</b>.
+                            Properti <b>currentIndex</b> mengikuti nilai _selectedIndex, sedangkan
+                            <b>onTap</b> memanggil method yang memperbarui indeks melalui setState.
+                            Tambahkan tiga item navigasi dengan ikon dan label Beranda, Riwayat, dan Profil.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-3.png" class="report-img" alt="Implementasi BottomNavigationBar">
+                            <p class="image-caption">Gambar 3. Implementasi BottomNavigationBar dengan tiga menu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">4</span>Menghubungkan Tombol Tambah Transaksi</div>
+                    <div class="step-content">
+                        <p>
+                            Pada file <b>dashboard_screen.dart</b>, ubah aksi tombol tambah transaksi agar
+                            menggunakan <b>Navigator.pushNamed(context, '/add')</b>. Rute tersebut harus
+                            sudah terdaftar pada main.dart. Perubahan ini mengikuti modul yang mengganti
+                            navigasi langsung dengan navigasi berdasarkan nama rute.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-4.png" class="report-img" alt="Navigator pushNamed pada tombol tambah">
+                            <p class="image-caption">Gambar 4. Tombol tambah transaksi membuka rute /add</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">5</span>Membuat Halaman Riwayat Transaksi</div>
+                    <div class="step-content">
+                        <p>
+                            Buat halaman Riwayat Transaksi untuk menampilkan
+                            transaksi yang telah dicatat. Hubungkan halaman tersebut ke daftar halaman
+                            pada MainScreen agar dapat dibuka melalui menu Riwayat di bagian bawah layar.
+                            
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-5.png" class="report-img" alt="Halaman Riwayat Transaksi">
+                            <p class="image-caption">Gambar 5. Halaman Riwayat Transaksi pada aplikasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">6</span>Membuat Halaman Profil dan Logout</div>
+                    <div class="step-content">
+                        <p>
+                            Buat halaman Profil yang berisi avatar, nama, email, dan tombol Logout sesuai
+                            tugas modul. Masukkan halaman Profil ke daftar halaman MainScreen sehingga
+                            pengguna dapat membukanya melalui menu Profil.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-6.png" class="report-img" alt="Halaman Profil pengguna">
+                            <p class="image-caption">Gambar 6. Halaman Profil yang memuat informasi pengguna dan tombol Logout</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">7</span>Membuat Halaman Login</div>
+                    <div class="step-content">
+                        <p>
+                            Buat halaman Login dengan input email dan password serta tombol Login.
+                            Ketika tombol ditekan, aplikasi memproses input dan membuka halaman utama
+                            sesuai alur autentikasi yang diterapkan. Modul meminta informasi email yang
+                            dimasukkan pengguna ditampilkan pada halaman utama. 
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-7.png" class="report-img" alt="Halaman Login aplikasi">
+                            <p class="image-caption">Gambar 7. Halaman Login dengan input email dan password</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h4 class="section-heading">Pengembangan Tambahan pada Aplikasi Final</h4>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">1</span>Integrasi Autentikasi dan Penyimpanan Lokal</div>
+                    <div class="step-content">
+                        <p>
+                            Aplikasi final menggabungkan halaman autentikasi dengan fitur Expense Tracker.
+                            Data akun dan transaksi dikelola melalui penyimpanan lokal SQLite menggunakan
+                            database helper, sehingga data transaksi dapat dipisahkan berdasarkan pengguna
+                            yang sedang masuk. 
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-8.png" class="report-img" alt="Autentikasi dan penyimpanan data aplikasi final">
+                            <p class="image-caption">Gambar 8. Alur autentikasi pengguna pada aplikasi final</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">2</span>Validasi Saldo Pengeluaran</div>
+                    <div class="step-content">
+                        <p>
+                            Sebagai tambahan pada aplikasi final, sebelum menyimpan transaksi bertipe
+                            pengeluaran, aplikasi memeriksa saldo pengguna. Jika nominal pengeluaran
+                            lebih besar daripada saldo saat ini, transaksi tidak disimpan dan aplikasi
+                            menampilkan pesan bahwa saldo tidak mencukupi. Validasi ini membantu mencegah
+                            saldo menjadi negatif melalui form tambah transaksi.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-9.png" class="report-img" alt="Pesan validasi saldo tidak mencukupi">
+                            <p class="image-caption">Gambar 9. Pesan saldo tidak mencukupi ketika pengeluaran melebihi saldo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-title"><span class="step-number">3</span>Pengujian Hasil Akhir Aplikasi</div>
+                    <div class="step-content">
+                        <p>
+                            Jalankan aplikasi dan uji alur utama: masuk ke akun, melihat saldo, berpindah
+                            antara Beranda, Riwayat, dan Profil, menambahkan pemasukan atau pengeluaran,
+                            membuka detail transaksi jika tersedia, serta mencoba pengeluaran yang melebihi
+                            saldo. Pastikan tab navigasi berpindah sesuai pilihan dan data yang ditampilkan
+                            sesuai dengan pengguna yang masuk.
+                        </p>
+                        <div class="image-wrap">
+                            <img src="images/appm5/appm5-10.png" class="report-img" alt="Hasil akhir aplikasi Expense Tracker">
+                            <p class="image-caption">Gambar 10. Hasil akhir aplikasi Expense Tracker dengan navigasi bawah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="section-block">
+                <h4 class="section-heading">Kesimpulan</h4>
+                <div class="result-box">
+                    <p class="mb-0">
+                        Praktikum 5 memberikan pemahaman tentang pengaturan navigasi aplikasi Flutter
+                        menggunakan Named Routes dan BottomNavigationBar. Properti routes dan initialRoute
+                        mengatur rute yang tersedia serta halaman awal, sementara currentIndex, onTap,
+                        dan setState digunakan untuk mengatur perpindahan tab. Penerapan tugas modul
+                        melengkapi aplikasi dengan halaman Riwayat, Profil, dan Login. Pengembangan final
+                        kemudian menyatukan navigasi dengan fitur pencatatan transaksi serta validasi
+                        saldo pengeluaran.
+                    </p>
+                </div>
+            </div>
+
+            <div class="repo-box">
+                <h5 class="fw-bold mb-2">Repository GitHub</h5>
+                <p class="text-secondary mb-3">
+                    Source code praktikum dapat dilihat melalui repository berikut.
+                </p>
+                <a href="https://github.com/zahira456/2411532015_ZahiraNurAsyifa_AplikasiMobile_A/tree/praktikum_final"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                    <i class="bi bi-github me-2"></i>
+                    Lihat Repository GitHub
+                </a>
+            
+            </div>
+
+             <div class="repo-box">
+                <h5 class="fw-bold mb-2">Link YouTube</h5>
+                <p class="text-secondary mb-3">
+                    Video penjelasan apk dapat dilihat melalui tautan berikut.
+                </p>
+                <a href="https://youtu.be/NvYUbboFAZg"
+                   target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                    <i class="bi bi-youtube me-2"></i>
+                    Lihat Video YouTube
+                </a>
+            
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2 mb-0">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta laporan praktikum.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://github.com/zahira456" class="social-icon me-3" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
