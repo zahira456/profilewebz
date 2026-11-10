@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum 6 - State Management ResepKu</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #f6f7fb;
+        }
+
+        .report-section {
+            padding-top: 110px;
+            padding-bottom: 70px;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px;
+        }
+
+        .report-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .intro-box {
+            background: #f8f9fa;
+            border-left: 4px solid #212529;
+            border-radius: 12px;
+            padding: 18px 20px;
+        }
+
+        .section-block {
+            margin-top: 34px;
+        }
+
+        .section-heading {
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #212529;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .step-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-wrap {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .report-img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 520px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.10);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .info-card {
+            height: 100%;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .info-card h5 {
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e9ecef;
+        }
+
+        .repo-box {
+            margin-top: 22px;
+            padding: 22px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .footer-section {
+            background: #212529;
+            color: #fff;
+            padding: 50px 0 25px;
+        }
+
+        .footer-link,
+        .social-icon {
+            color: #adb5bd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover,
+        .social-icon:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .report-card {
+                padding: 22px;
+            }
+
+            .step-card {
+                padding: 18px;
+            }
+
+            .report-img {
+                max-height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png"
+                     alt="Logo"
+                     style="height: 35px; width: auto; margin-right: 8px;">
+                Zhone
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="report.html">Report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<section class="report-section">
+  <div class="container">
+    <div class="report-card">
+      <div class="text-center mb-4">
+        <h2 class="report-title mb-2">Laporan Praktikum 6</h2>
+        <h4 class="text-secondary">State Management pada Aplikasi ResepKu</h4>
+      </div>
+
+      <div class="intro-box">
+        <p class="mb-0">
+          Praktikum 6 membahas pengelolaan state pada Flutter melalui <b>setState()</b> dan
+          <b>Provider</b>. State lokal menggunakan StatefulWidget dan setState() untuk mengelola
+          jumlah porsi pada halaman detail resep. Selanjutnya, state global menggunakan
+          ChangeNotifier dan Provider untuk mengelola daftar resep favorit yang digunakan bersama
+          oleh halaman Home, Detail, badge AppBar, dan halaman Favorit. Pada latihan, aplikasi
+          dikembangkan dengan pengaturan tema gelap/terang serta fitur menghapus seluruh resep favorit.
+        </p>
+      </div>
+
+      <div class="section-block">
+        <h4 class="section-heading">Tujuan Praktikum</h4>
+        <div class="row g-3">
+          <div class="col-md-6"><div class="info-card">
+            <h5>State Lokal dengan setState()</h5>
+            <ul class="mb-0">
+              <li>Membuat state lokal menggunakan StatefulWidget.</li>
+              <li>Mengubah jumlah porsi resep menggunakan setState().</li>
+              <li>Memahami bahwa state lokal hanya digunakan oleh widget atau halaman tertentu.</li>
+            </ul>
+          </div></div>
+          <div class="col-md-6"><div class="info-card">
+            <h5>State Global dengan Provider</h5>
+            <ul class="mb-0">
+              <li>Membuat state global menggunakan ChangeNotifier dan Provider.</li>
+              <li>Membaca state dengan context.watch, context.read, dan Consumer.</li>
+              <li>Menggunakan data favorit pada beberapa halaman dan widget.</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h4 class="section-heading">Alat dan Bahan</h4>
+        <div class="info-card">
+          <ul class="mb-0">
+            <li>Flutter SDK versi stable.</li>
+            <li>Visual Studio Code dengan extension Flutter atau Android Studio.</li>
+            <li>Emulator Android atau perangkat Android.</li>
+            <li>Package provider.</li>
+            <li>Project Flutter ResepKu.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h4 class="section-heading">Langkah-Langkah Praktikum</h4>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">1</span>Membuat Project dan Struktur Folder </div>
+          <div class="step-content">
+            <p>Membuat project Flutter dengan nama <b>resepku</b>, kemudian menyiapkan folder
+            <b>models</b>, <b>data</b>, <b>providers</b>, <b>pages</b>, dan <b>widgets</b> di dalam
+            folder lib. File test bawaan widget_test.dart dihapus sesuai instruksi modul karena
+            praktikum ini belum menggunakan pengujian tersebut.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-1.png" class="report-img" alt="Struktur folder project ResepKu">
+              <p class="image-caption">Gambar 1. Struktur folder project ResepKu</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">2</span>Membuat Model Recipe </div>
+          <div class="step-content">
+            <p>Membuat file <b>lib/models/recipe.dart</b> untuk merepresentasikan data satu resep.
+            Model Recipe memiliki data seperti id, name, cuisine, difficulty, waktu persiapan,
+            waktu memasak, servings, kalori, rating, image, dan ingredients. Getter
+            <b>totalTimeMinutes</b> digunakan untuk menghitung jumlah waktu persiapan dan memasak.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-2.png" class="report-img" alt="Model Recipe">
+              <p class="image-caption">Gambar 2. Implementasi model Recipe</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">3</span>Menambahkan Data Dummy (A.3)</div>
+          <div class="step-content">
+            <p>Membuat file <b>lib/data/dummy_recipes.dart</b> yang berisi enam data resep.
+            Data tersebut menggunakan model Recipe dan menjadi sumber data yang ditampilkan
+            pada halaman Home.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-3.png" class="report-img" alt="Data dummy resep">
+              <p class="image-caption">Gambar 3. Data dummy enam resep</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">4</span>Membuat Footer Identitas dan Halaman Home (A.4)</div>
+          <div class="step-content">
+            <p>Membuat widget <b>IdentityFooter</b> untuk menampilkan NIM dan nama pada bagian
+            bawah aplikasi. Footer dipasang melalui properti <b>builder</b> pada MaterialApp agar
+            tampil pada setiap halaman. Selanjutnya dibuat halaman Home dan RecipeTile untuk
+            menampilkan daftar resep serta membuka halaman detail ketika resep dipilih.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-4.png" class="report-img" alt="Halaman Home dan footer identitas">
+              <p class="image-caption">Gambar 4. Halaman Home dan footer identitas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">5</span>Membuat Halaman Detail dengan setState() (A.5)</div>
+          <div class="step-content">
+            <p>Halaman Detail dibuat menggunakan <b>StatefulWidget</b>. Variabel <b>_servings</b>
+            menyimpan jumlah porsi dan diinisialisasi dari data resep melalui initState().
+            Tombol tambah dan kurang mengubah nilai tersebut menggunakan setState(). Tombol kurang
+            dinonaktifkan ketika jumlah porsi bernilai 1. Total kalori dihitung dari kalori per porsi
+            dikalikan jumlah porsi.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-5.png" class="report-img" alt="Halaman detail dengan jumlah porsi">
+              <p class="image-caption">Gambar 5. Halaman Detail dengan pengaturan jumlah porsi</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">6</span>Checkpoint 1 — Pengujian Jumlah Porsi</div>
+          <div class="step-content">
+            <p>Pengujian dilakukan pada resep <b>Classic Margherita Pizza</b>. Jumlah porsi diubah
+            menjadi 6 sehingga total kalori menjadi <b>1800 kkal</b> (6 × 300 kkal). Tombol kurang
+            tidak aktif ketika jumlah porsi bernilai 1.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-6.png" class="report-img" alt="Checkpoint 1 porsi enam">
+              <p class="image-caption">Gambar 6. Checkpoint 1: Classic Margherita Pizza dengan 6 porsi dan 1800 kkal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">7</span>Eksperimen Favorit dengan State Lokal (B.1–B.2)</div>
+          <div class="step-content">
+            <p>Pada eksperimen ini, RecipeTile diubah menjadi StatefulWidget dan setiap tile menyimpan
+            status favoritnya sendiri melalui variabel <b>_isFavorite</b>. Ikon hati dapat berubah
+            ketika ditekan, tetapi data tersebut hanya dimiliki oleh tile masing-masing sehingga
+            tidak dapat digunakan secara langsung oleh HomePage, halaman Detail, atau widget lain.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-7.png" class="report-img" alt="Eksperimen favorit state lokal">
+              <p class="image-caption">Gambar 7. Eksperimen perubahan ikon favorit dengan state lokal</p>
+            </div>
+            <h6 class="fw-bold mt-3">Jawaban pengamatan Bagian B</h6>
+            <ol>
+              <li><b>Apakah ikon hati berubah?</b> Ya. Ikon hati berubah ketika ditekan karena setiap RecipeTile memanggil setState() untuk mengubah nilai _isFavorite miliknya.</li>
+              <li><b>Apakah jumlah favorit dapat ditampilkan pada AppBar HomePage?</b> Tidak secara langsung. Data _isFavorite berada di dalam State milik masing-masing RecipeTile, sehingga HomePage tidak dapat membaca seluruh status favorit tersebut.</li>
+              <li><b>Bagaimana halaman Detail mengetahui resep sudah favorit?</b> Halaman Detail tidak dapat mengetahui status tersebut secara langsung karena status favorit hanya disimpan pada state lokal RecipeTile, bukan pada tempat penyimpanan data bersama.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">8</span>Memasang Provider dan Membuat FavoriteProvider (C.1)</div>
+          <div class="step-content">
+            <p>Package <b>provider</b> ditambahkan melalui perintah <b>flutter pub add provider</b>.
+            Selanjutnya dibuat FavoriteProvider yang meng-extend ChangeNotifier. Class ini menyimpan
+            daftar resep pada <b>_items</b>, menyediakan getter items dan count, memeriksa status
+            melalui isFavorite(), mengubah daftar melalui toggle(), serta memberi tahu widget
+            yang mendengarkan perubahan dengan notifyListeners().</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-8.png" class="report-img" alt="FavoriteProvider">
+              <p class="image-caption">Gambar 8. Implementasi FavoriteProvider</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">9</span>Mendaftarkan Provider pada main.dart (C.2)</div>
+          <div class="step-content">
+            <p>FavoriteProvider didaftarkan menggunakan MultiProvider di atas MaterialApp agar
+            seluruh halaman dapat mengakses state favorit. Builder IdentityFooter tetap dipertahankan
+            agar footer identitas tampil pada semua halaman. Setelah perubahan main.dart dilakukan,
+            aplikasi perlu di-hot restart agar provider yang didaftarkan pada main() aktif.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-9.png" class="report-img" alt="MultiProvider pada main dart">
+              <p class="image-caption">Gambar 9. Pendaftaran FavoriteProvider pada main.dart</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">10</span>Menghubungkan RecipeTile dengan Provider (C.3)</div>
+          <div class="step-content">
+            <p>RecipeTile dikembalikan menjadi StatelessWidget. Status favorit dibaca menggunakan
+            <b>context.watch&lt;FavoriteProvider&gt;()</b> di dalam build agar widget diperbarui
+            ketika data berubah. Ketika ikon hati ditekan, <b>context.read&lt;FavoriteProvider&gt;()</b>
+            digunakan untuk memanggil toggle() tanpa memasang listener pada callback.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-10.png" class="report-img" alt="RecipeTile menggunakan Provider">
+              <p class="image-caption">Gambar 10. RecipeTile membaca dan mengubah status favorit melalui Provider</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">11</span>Menambahkan Tombol Favorit pada Detail (C.4)</div>
+          <div class="step-content">
+            <p>Halaman Detail menggunakan context.watch untuk membaca status favorit resep yang
+            sedang dibuka. Ikon hati ditambahkan pada actions AppBar. Ketika ditekan, tombol
+            memanggil toggle() melalui context.read. Dengan demikian, halaman Detail menggunakan
+            setState() untuk jumlah porsi dan Provider untuk status favorit.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-11.png" class="report-img" alt="Tombol favorit pada halaman detail">
+              <p class="image-caption">Gambar 11. Tombol favorit pada AppBar halaman Detail</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">12</span>Membuat Halaman Favorit dengan Consumer (C.5)</div>
+          <div class="step-content">
+            <p>Halaman FavoritePage dibuat untuk menampilkan daftar resep yang disukai. Widget
+            <b>Consumer&lt;FavoriteProvider&gt;</b> membaca perubahan state dan membangun ulang
+            tampilan ketika notifyListeners() dipanggil. Jika jumlah favorit nol, halaman
+            menampilkan pesan bahwa belum ada resep favorit. Setiap resep juga memiliki tombol
+            untuk menghapusnya dari daftar melalui toggle().</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-12.png" class="report-img" alt="Halaman favorit">
+              <p class="image-caption">Gambar 12. Halaman Favorit yang menampilkan resep pilihan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">13</span>Membuat Badge Jumlah Favorit (C.6)</div>
+          <div class="step-content">
+            <p>Widget FavoriteBadgeButton dibuat sebagai tombol terpisah pada AppBar HomePage.
+            Jumlah favorit dibaca menggunakan context.watch&lt;FavoriteProvider&gt;(). Badge
+            menampilkan angka ketika jumlah favorit lebih dari nol. Tombol tersebut membuka
+            halaman FavoritePage ketika ditekan.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-13.png" class="report-img" alt="Badge jumlah favorit">
+              <p class="image-caption">Gambar 13. Badge jumlah favorit pada AppBar Home</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">14</span>Pengujian Aplikasi Provider (C.7)</div>
+          <div class="step-content">
+            <p>Pengujian dilakukan sesuai enam skenario pada modul untuk memastikan status favorit
+            dapat digunakan bersama pada Home, Detail, badge, dan halaman Favorit. Selain itu,
+            dilakukan pengujian bahwa jumlah porsi kembali ke nilai awal setelah halaman Detail
+            ditutup dan dibuka kembali.</p>
+            
+            <h6 class="fw-bold mt-3">Tabel Pengujian Langkah C.7</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead class="table-light"><tr><th>No.</th><th>Skenario</th><th>Hasil yang diharapkan</th><th>Hasil pengujian</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Tap ikon hati pada Margherita dan Alfredo di Home.</td><td>Ikon berwarna merah dan badge menunjukkan angka 2.</td><td>Sesuai modul</td></tr>
+                  <tr><td>2</td><td>Buka detail Margherita.</td><td>Ikon hati di AppBar Detail terisi.</td><td>Sesuai modul</td></tr>
+                  <tr><td>3</td><td>Di Detail, tap ikon hati lalu kembali ke Home.</td><td>Ikon Margherita kosong dan badge menunjukkan angka 1.</td><td>Sesuai modul</td></tr>
+                  <tr><td>4</td><td>Tap badge pada AppBar.</td><td>Halaman Favorit hanya berisi Alfredo.</td><td>Sesuai modul</td></tr>
+                  <tr><td>5</td><td>Hapus Alfredo dari halaman Favorit lalu kembali.</td><td>Muncul pesan belum ada resep favorit dan badge hilang.</td><td>Sesuai modul</td></tr>
+                  <tr><td>6</td><td>Ubah porsi menjadi 2, kembali ke Home, lalu buka resep yang sama.</td><td>Porsi kembali ke nilai awal karena state lokal halaman sebelumnya sudah dibuang.</td><td>Sesuai modul</td></tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h4 class="section-heading">Pertanyaan Analisis</h4>
+        <div class="step-card">
+          <h6 class="fw-bold">1. Jawaban tiga pertanyaan pada Langkah B.2</h6>
+          <p>Ikon hati dapat berubah karena setiap RecipeTile mengubah variabel _isFavorite miliknya menggunakan setState(). Namun, jumlah seluruh favorit tidak dapat dibaca langsung oleh HomePage karena variabel tersebut berada di state lokal masing-masing tile. Halaman Detail juga tidak dapat mengetahui status favorit dari tile karena keduanya tidak berbagi tempat penyimpanan state. Oleh sebab itu, data favorit perlu diletakkan pada state bersama menggunakan Provider.</p>
+
+          <h6 class="fw-bold mt-3">2. Mengapa jumlah porsi tetap menggunakan setState() dan tidak dimasukkan ke Provider?</h6>
+          <p>Jumlah porsi hanya dibutuhkan oleh halaman Detail, sehingga cukup disimpan sebagai state lokal menggunakan setState(). Hal ini sesuai dengan skenario keenam pada C.7: ketika halaman Detail ditutup lalu dibuka kembali, jumlah porsi kembali ke nilai awal. Provider tidak diperlukan untuk data yang hanya digunakan oleh satu halaman dan tidak perlu dibagikan ke widget lain.</p>
+
+          <h6 class="fw-bold mt-3">3. Apa yang terjadi jika ChangeNotifierProvider dipindahkan ke dalam HomePage?</h6>
+          <p>Ketika halaman Favorit dibuka, halaman tersebut tidak dapat menemukan FavoriteProvider jika provider hanya membungkus Scaffold di HomePage. Hal ini terjadi karena halaman Favorit dibuat sebagai route yang berada di luar cakupan subtree HomePage. Provider harus diletakkan di atas MaterialApp agar dapat diakses oleh seluruh halaman aplikasi.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h4 class="section-heading">Latihan</h4>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">1</span>Latihan 1 — Tema Gelap dan Terang</div>
+          <div class="step-content">
+            <p>Membuat <b>ThemeProvider</b> yang meng-extend ChangeNotifier untuk mengelola ThemeMode.
+            Provider menyediakan getter dan method untuk mengubah tema serta memanggil
+            notifyListeners(). ThemeProvider didaftarkan pada MultiProvider di main.dart.
+            MaterialApp menggunakan theme, darkTheme, dan themeMode yang dibaca melalui
+            context.watch&lt;ThemeProvider&gt;(). Halaman SettingsPage menyediakan SwitchListTile
+            “Mode gelap”, sedangkan tombol pengaturan pada AppBar HomePage digunakan untuk membuka
+            halaman tersebut.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-15.png" class="report-img" alt="Pengaturan tema gelap dan terang">
+              <p class="image-caption">Gambar 15. Halaman Pengaturan dengan SwitchListTile Mode gelap</p>
+            </div>
+            <p class="mb-0">Hasil yang diharapkan adalah seluruh aplikasi berubah ke tema gelap ketika switch diaktifkan dan kembali ke tema terang ketika switch dinonaktifkan.</p>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-title"><span class="step-number">2</span>Latihan 2 — Menghapus Semua Favorit</div>
+          <div class="step-content">
+            <p>Menambahkan method <b>clear()</b> pada FavoriteProvider untuk mengosongkan daftar
+            favorit dan memanggil notifyListeners(). Pada halaman Favorit ditambahkan tombol
+            “Hapus semua” yang meminta konfirmasi pengguna melalui AlertDialog sebelum memanggil
+            clear(). Tombol dibuat nonaktif ketika daftar favorit kosong.</p>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-16.png" class="report-img" alt="Konfirmasi hapus semua favorit">
+              <p class="image-caption">Gambar 16. Dialog konfirmasi untuk menghapus semua resep favorit</p>
+            </div>
+            <div class="image-wrap">
+              <img src="images/appm6/appm6-17.png" class="report-img" alt="Halaman favorit setelah dihapus">
+              <p class="image-caption">Gambar 17. Halaman Favorit setelah seluruh data dihapus</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h4 class="section-heading">Kesimpulan</h4>
+        <div class="result-box">
+          <p class="mb-0">Praktikum 6 menunjukkan bahwa pemilihan pengelolaan state disesuaikan dengan cakupan penggunaan data. State lokal menggunakan StatefulWidget dan setState() sesuai untuk jumlah porsi yang hanya dibutuhkan pada halaman Detail. Sementara itu, data favorit digunakan oleh beberapa halaman dan widget sehingga dikelola sebagai state global menggunakan Provider, ChangeNotifier, dan notifyListeners(). Data tersebut dibaca melalui context.watch, context.read, dan Consumer. Pada latihan, pengelolaan state dikembangkan untuk mengatur tema gelap/terang serta menghapus seluruh daftar favorit dengan konfirmasi pengguna.</p>
+        </div>
+      </div>
+
+      <div class="repo-box">
+        <h5 class="fw-bold mb-2">Repository GitHub</h5>
+        <p class="text-secondary mb-3">Source code project ResepKu dapat dilihat melalui repository berikut.</p>
+        <a href="https://github.com/zahira456/2411532015_KelasA_AppMob_ResepKu" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+          <i class="bi bi-github me-2"></i>Lihat Repository GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Zhone</h5>
+                <p class="small mt-2 mb-0">
+                    Website portfolio pribadi saya yang berisi informasi tentang diri saya,
+                    proyek yang telah saya buat, serta laporan praktikum.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="about.html" class="footer-link">About</a></li>
+                    <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                    <li><a href="report.html" class="footer-link">Report</a></li>
+                    <li><a href="kontak.html" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Follow Me</h5>
+                <div class="d-flex mt-2">
+                    <a href="https://www.instagram.com/za_niverse/" class="social-icon me-3" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://github.com/zahira456" class="social-icon me-3" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+            <p class="mb-0 small">&copy; 2025 Zahira. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
